@@ -1,53 +1,49 @@
 
 <html>
-
 <head>
 <title>Nakfa Rate</title>
 
 <style>
-body {{
-    font-family: Arial, Helvetica, sans-serif;
+body {
+    font-family: Arial;
     max-width: 900px;
     margin: auto;
     background: #f5f7fa;
-}}
+}
 
-h1 {{
+h1 {
     text-align: center;
-    margin-top: 40px;
-}}
+}
 
-.summary {{
+.summary {
     background: white;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-    margin-bottom: 25px;
-}}
+    margin-bottom: 20px;
+}
 
-table {{
-    border-collapse: collapse;
+table {
     width: 100%;
+    border-collapse: collapse;
     background: white;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}}
+}
 
-th {{
+th {
     background: #2c3e50;
     color: white;
     padding: 10px;
-}}
+}
 
-td {{
+td {
     padding: 8px;
-    border-bottom: 1px solid #eee;
     text-align: center;
-}}
+    border-bottom: 1px solid #eee;
+}
 
-.rank1 {{
+.rank1 {
     background: #dff6e5;
     font-weight: bold;
-}}
+}
 </style>
 
 </head>
@@ -64,57 +60,230 @@ Compare transfer services and get the best value today.
 🔥 Easter Transfers Ongoing – Updated Daily
 </p>
 
-{your_existing_tables}
+<h2>SEK → ERN Transfer Rate Comparison</h2>
 
-</body>
-# </html>
+<div class="summary">
+<p><b>Rate:</b> 1.6067</p>
+<p><b>Last update:</b> 2026-03-24 20:23:02.240000</p>
+<p><b>Comparison amount:</b> 10000.0 SEK</p>
 
-# <h1>SEK → ERN Transfer Rate Comparison</h1>
-
-# <div class="summary">
-
-# <h2>Official SEK → ERN Rate</h2>
-
-<p><b>Rate:</b> {official_rate}</p>
-<p><b>Last update:</b> {timestamp}</p>
-<p><b>Comparison amount:</b> {amount} SEK</p>
-
-<div class="bestbox">
-🏆 Best provider today: {best_company} – {best_amount} ERN received
-</div>
-
+<p>🏆 Best provider: <b>Galaxy Transfer</b> – 15 754,00 ERN</p>
 </div>
 
 <h3>Transfer companies</h3>
 
 <table>
-
 <tr>
-<th>Transfer company</th>
-<th>SEK/ERN rate</th>
-<th>Transfer fee (SEK)</th>
-<th>ERN received</th>
-<th>Difference vs best ERN</th>
-<th>Loss vs official rate</th>
-<th>Ranking</th>
+<th>Company</th>
+<th>Rate</th>
+<th>Fee</th>
+<th>ERN</th>
+<th>Diff</th>
+<th>Loss %</th>
+<th>Rank</th>
 </tr>
 
-{rows}
+
+    <tr class="rank1">
+    <td>Galaxy Transfer</td>
+    <td>1.5804</td>
+    <td>50,00</td>
+    <td>15 754,00</td>
+    <td>0,00</td>
+    <td>-1.95%</td>
+    <td>1</td>
+    </tr>
+    
+    <tr >
+    <td>Remitly</td>
+    <td>1.5763</td>
+    <td>50,00</td>
+    <td>15 713,00</td>
+    <td>-41,00</td>
+    <td>-2.20%</td>
+    <td>2</td>
+    </tr>
+    
+    <tr >
+    <td>Ria</td>
+    <td>1.5894</td>
+    <td>80,00</td>
+    <td>15 664,00</td>
+    <td>-90,00</td>
+    <td>-2.51%</td>
+    <td>3</td>
+    </tr>
+    
+    <tr >
+    <td>Wester Union</td>
+    <td>1.5699</td>
+    <td>50,00</td>
+    <td>15 549,00</td>
+    <td>-205,00</td>
+    <td>-3.22%</td>
+    <td>4</td>
+    </tr>
+    
+    <tr >
+    <td>Dahabshill</td>
+    <td>1.5731</td>
+    <td>30,00</td>
+    <td>15 521,00</td>
+    <td>-233,00</td>
+    <td>-3.40%</td>
+    <td>5</td>
+    </tr>
+    
+    <tr >
+    <td>Riham Online</td>
+    <td>1.5230</td>
+    <td>0,00</td>
+    <td>15 230,00</td>
+    <td>-524,00</td>
+    <td>-5.21%</td>
+    <td>6</td>
+    </tr>
+    
 
 </table>
 
 <h3>Historical rates</h3>
 
 <table>
-
 <tr>
 <th>Date</th>
 <th>Company</th>
 <th>Rate</th>
-<th>ERN received</th>
+<th>ERN</th>
 </tr>
 
-{history_html}
+
+        <tr>
+        <td>2026-03-21</td>
+        <td>Galaxy Transfer</td>
+        <td>1.5764</td>
+        <td>15714</td>
+        </tr>
+        
+        <tr>
+        <td>2026-03-21</td>
+        <td>Ria</td>
+        <td>1.5916</td>
+        <td>15685</td>
+        </tr>
+        
+        <tr>
+        <td>2026-03-21</td>
+        <td>Remitly</td>
+        <td>1.5734</td>
+        <td>15684</td>
+        </tr>
+        
+        <tr>
+        <td>2026-03-21</td>
+        <td>Western Union</td>
+        <td>1.5674</td>
+        <td>15523</td>
+        </tr>
+        
+        <tr>
+        <td>2026-03-21</td>
+        <td>Dahabshil</td>
+        <td>1.5732</td>
+        <td>15522</td>
+        </tr>
+        
+        <tr>
+        <td>2026-03-21</td>
+        <td>Riham Online</td>
+        <td>1.5230</td>
+        <td>15230</td>
+        </tr>
+        
+        <tr>
+        <td>2026-03-24</td>
+        <td>Galaxy Transfer</td>
+        <td>1.5804</td>
+        <td>15754</td>
+        </tr>
+        
+        <tr>
+        <td>2026-03-24</td>
+        <td>Remitly</td>
+        <td>1.5763</td>
+        <td>15713</td>
+        </tr>
+        
+        <tr>
+        <td>2026-03-24</td>
+        <td>Ria</td>
+        <td>1.5894</td>
+        <td>15664</td>
+        </tr>
+        
+        <tr>
+        <td>2026-03-24</td>
+        <td>Wester Union</td>
+        <td>1.5699</td>
+        <td>15549</td>
+        </tr>
+        
+        <tr>
+        <td>2026-03-24</td>
+        <td>Dahabshill</td>
+        <td>1.5731</td>
+        <td>15521</td>
+        </tr>
+        
+        <tr>
+        <td>2026-03-24</td>
+        <td>Riham Online</td>
+        <td>1.5230</td>
+        <td>15230</td>
+        </tr>
+        
+        <tr>
+        <td>2026-03-24</td>
+        <td>Galaxy Transfer</td>
+        <td>1.5804</td>
+        <td>15754</td>
+        </tr>
+        
+        <tr>
+        <td>2026-03-24</td>
+        <td>Remitly</td>
+        <td>1.5763</td>
+        <td>15713</td>
+        </tr>
+        
+        <tr>
+        <td>2026-03-24</td>
+        <td>Ria</td>
+        <td>1.5894</td>
+        <td>15664</td>
+        </tr>
+        
+        <tr>
+        <td>2026-03-24</td>
+        <td>Wester Union</td>
+        <td>1.5699</td>
+        <td>15549</td>
+        </tr>
+        
+        <tr>
+        <td>2026-03-24</td>
+        <td>Dahabshill</td>
+        <td>1.5731</td>
+        <td>15521</td>
+        </tr>
+        
+        <tr>
+        <td>2026-03-24</td>
+        <td>Riham Online</td>
+        <td>1.5230</td>
+        <td>15230</td>
+        </tr>
+        
 
 </table>
 
