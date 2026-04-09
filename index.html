@@ -1,305 +1,661 @@
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nakfa Rate - Compare ERN Transfers</title>
 
+<!-- Cloudflare Web Analytics -->
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
 data-cf-beacon='{"token": "5d26a70ee4f049feb02ddaeca63d390e"}'></script>
+<!-- End Cloudflare Web Analytics -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+:root {
+    --bg-primary: #f8fafc;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --accent-blue: #0ea5e9;
+    --accent-blue-light: #e0f2fe;
+    --success: #10b981;
+    --success-light: #d1fae5;
+    --danger: #ef4444;
+    --danger-light: #fee2e2;
+    --card-bg: rgba(255, 255, 255, 0.75);
+    --border-color: #e2e8f0;
+}
 
-body{font-family: Arial;max-width: 900px;margin:auto;background:#f5f7fa;padding:10px;}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-.header-box{text-align:center;padding:20px;}
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    background: linear-gradient(135deg, #f0f4f8 0%, #e2e8f0 100%);
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    line-height: 1.5;
+}
 
-.banner{background:#ffc107;padding:10px;border-radius:6px;font-weight:bold;margin-top:10px;}
+.container {
+    max-width: 950px;
+    margin: 0 auto;
+}
 
-.summary{background:white;padding:20px;border-radius:10px;margin-bottom:25px;box-shadow:0 2px 8px rgba(0,0,0,0.08);}
+.header-box {
+    text-align: center;
+    margin-bottom: 2rem;
+    animation: fadeInDown 0.6s ease-out;
+}
 
-.disclaimer{font-size:12px;color:#666;margin-top:10px;text-align:center;}
+.header-box h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+    color: #1e293b;
+}
 
-.country-title{margin-top:30px;}
+.header-box p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+}
 
-.bestbox{background:#e8f7ee;padding:10px;border-radius:6px;margin-top:10px;font-weight:bold;}
+.banner {
+    display: inline-block;
+    background: linear-gradient(90deg, #f59e0b, #ef4444);
+    color: white;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    border-radius: 9999px;
+    margin-top: 1rem;
+    box-shadow: 0 4px 14px 0 rgba(239, 68, 68, 0.39);
+}
 
-.gainbox{background:#e3f2fd;padding:10px;border-radius:6px;margin-top:10px;font-weight:bold;}
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255,255,255,0.4);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    animation: fadeInUp 0.6s ease-out;
+}
 
-.table-container{overflow-x:auto;}
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
 
-table{width:100%;border-collapse:collapse;background:white;margin-top:10px;}
+.summary-item {
+    padding: 1rem;
+    background: rgba(255,255,255,0.6);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
 
-th{background:#1f2d3d;color:white;padding:10px;text-align:right;}
+.summary-label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
 
-th:first-child, td:first-child {text-align:left;}
+.summary-value {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+}
 
-td{padding:10px;border-bottom:1px solid #eee;text-align:right;}
+.insight-boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
 
-.nowrap{white-space:nowrap;}
+.bestbox, .gainbox {
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+}
 
-.rank1{background:#dff6e5;font-weight:bold;}
+.bestbox {
+    background: var(--success-light);
+    color: #065f46;
+    border: 1px solid #a7f3d0;
+}
 
-.chart{margin-top:40px;text-align:center;}
+.gainbox {
+    background: var(--accent-blue-light);
+    color: #075985;
+    border: 1px solid #bae6fd;
+}
 
-.diff-good{color:#2ecc71; font-weight:bold;}
-.diff-bad{color:#e74c3c;}
+.country-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1e293b;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
 
-.markup-good{color:#2ecc71; font-weight:bold;}
-.markup-mid{color:#f39c12;}
-.markup-bad{color:#e74c3c; font-weight:bold;}
+.table-container {
+    overflow-x: auto;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    text-align: left;
+    min-width: 800px;
+}
+
+th {
+    background: #f8fafc;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    padding: 1rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+tr:last-child td { border-bottom: none; }
+
+tr:hover {
+    background-color: #f1f5f9;
+    transform: translateY(-1px);
+    transition: all 0.2s ease;
+}
+
+.best-row {
+    background: #f0fdf4;
+}
+.best-row:hover {
+    background: #dcfce7;
+}
+
+.right { text-align: right; }
+.left { text-align: left; }
+.center { text-align: center; }
+
+.font-numeric {
+    font-family: 'Inter', monospace;
+    font-variant-numeric: tabular-nums;
+}
+
+.nowrap { white-space: nowrap; }
+
+.company-name {
+    font-weight: 600;
+    color: #0f172a;
+    display: flex;
+    align-items: center;
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-left: 0.5rem;
+}
+
+.best-badge {
+    background: var(--success);
+    color: white;
+}
+
+.rank-badge {
+    background: #e2e8f0;
+    color: var(--text-muted);
+}
+
+.highlight-ern {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--success);
+}
+
+.loss-text {
+    color: var(--danger);
+    font-weight: 500;
+    background: var(--danger-light);
+    padding: 2px 6px;
+    border-radius: 6px;
+}
+
+.markup-cell {
+    color: var(--text-muted);
+}
+.markup-good {
+    color: #059669;
+    font-weight: 600;
+}
+
+.disclaimer {
+    text-align: center;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #cbd5e1;
+}
+
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.chart-card {
+    background: white;
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    text-align: center;
+}
+.chart-card h4 {
+    margin-bottom: 0.5rem;
+    color: var(--text-main);
+}
+.chart-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+    .container { padding: 0.5rem; }
+    .header-box h1 { font-size: 2rem; }
+    th, td { padding: 0.75rem; }
+    .hide-mobile { display: none; }
+    .glass-card { padding: 1rem; }
+}
 </style>
-
 </head>
-
 <body>
 
-<div class="header-box">
-<h1>🇪🇷 Nakfa Rate</h1>
-<p>Compare money transfer rates to Eritrea in real-time</p>
-<div class="banner">🔥 Independence Day Transfers Peak – Updated Daily</div>
-</div>
+<div class="container">
+    <div class="header-box">
+        <h1>🇪🇷 Nakfa Rate Compare</h1>
+        <p>Compare money transfer rates to Eritrea in real-time</p>
+        <div class="banner">🔥 Independence Day Transfers Peak – Updated Daily</div>
+    </div>
 
-<div class="summary">
+    <div class="glass-card">
+        <h3 style="text-align:center; margin-bottom:1rem; font-weight:700;">Mid-market rates (xe.com)</h3>
+        <div class="summary-grid">
+            <div class="summary-item">
+                <div class="summary-label">SEK</div>
+                <div class="summary-value" style="color: var(--accent-blue)">1.6112</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-label">NOK</div>
+                <div class="summary-value" style="color: var(--accent-blue)">1.5725</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-label">DKK</div>
+                <div class="summary-value" style="color: var(--accent-blue)">2.3409</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-label">Transfer Amount</div>
+                <div class="summary-value">10 000,00</div>
+            </div>
+            <div class="summary-item" style="grid-column: 1 / -1; display:flex; justify-content:space-between; align-items:center;">
+                <div><span class="summary-label">Last Updated:</span> <span style="font-weight:600">2026-04-09 10:04</span></div>
+            </div>
+        </div>
+        <div class="disclaimer" style="margin-top:0; border-top:none; padding-top:0;">
+            Rates and fees are collected manually from providers' websites/apps. Your actual amount may vary slightly due to market fluctuations.
+        </div>
+    </div>
 
-<h3 style="text-align:center;">Mid-market rates</h3>
-
-<p style="text-align:center;">
-<b>SEK:</b> 1.6112 | <b>NOK:</b> 1.5725 | <b>DKK:</b> 2.3409
-</p>
-
-<p style="text-align:center;"><b>Updated:</b> 2026-04-09 10:04</p>
-
-<p style="text-align:center;"><b>Amount:</b> 10 000,00 SEK</p>
-
-<div class="disclaimer">
-Rates are collected manually from providers' websites/apps. Your actual amount may vary slightly due to fluctuations.
-</div>
-
-</div>
-
-<h2 class="country-title">🇸🇪 Sweden (SEK)</h2>
-<div class="bestbox">🏆 Best: Ria → 16 161 ERN</div>
-<div class="gainbox">💡 +1 107 ERN vs Riham Online</div>
-
-<table>
-<tr>
-<th>Company</th>
-<th>Rate</th>
-<th>Fee</th>
-<th>ERN</th>
-<th>Difference in SEK</th>
-<th>Markup vs mid-market</th>
-<th>Rank</th>
-</tr>
-
-<tr class="rank1">
-<td class="left">Ria</td>
-<td class="right">1.6161</td>
-<td class="right">0,00</td>
-<td class="right nowrap">16 161</td>
-<td class="right diff-good">0</td>
-<td class="right markup-good">-0.30%</td>
-<td class="right">1</td>
-</tr>
-
-<tr class="">
-<td class="left">Galaxy Transfer</td>
-<td class="right">1.5842</td>
-<td class="right">0,00</td>
-<td class="right nowrap">15 842</td>
-<td class="right diff-bad">-319</td>
-<td class="right markup-good">1.68%</td>
-<td class="right">2</td>
-</tr>
-
-<tr class="">
-<td class="left">Dahabshiil</td>
-<td class="right">1.5801</td>
-<td class="right">30,00</td>
-<td class="right nowrap">15 771</td>
-<td class="right diff-bad">-390</td>
-<td class="right markup-mid">2.12%</td>
-<td class="right">3</td>
-</tr>
-
-<tr class="">
-<td class="left">Remitly</td>
-<td class="right">1.5758</td>
-<td class="right">0,00</td>
-<td class="right nowrap">15 758</td>
-<td class="right diff-bad">-403</td>
-<td class="right markup-mid">2.20%</td>
-<td class="right">4</td>
+    <!-- SEK Section -->
+    <h2 class="country-title">🇸🇪 Sweden (SEK)</h2>
+    <div class="glass-card">
+        <div class="insight-boxes" style="margin-bottom: 1.5rem;">
+            <div class="bestbox">
+                <span class="icon">🏆</span> 
+                <span>Top Pick: <b>Ria</b> delivers <b>16 161 ERN</b></span>
+            </div>
+            <div class="gainbox">
+                <span class="icon">💡</span> 
+                <span>Smart Move: You get <b>+1 107 ERN</b> more with Ria vs Riham Online</span>
+            </div>
+        </div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="left">Provider</th>
+                        <th class="right">Exchange Rate</th>
+                        <th class="right">Fee</th>
+                        <th class="right">You Receive (ERN)</th>
+                        <th class="right">Diff vs Best (ERN)</th>
+                        <th class="right">Hidden Fee (vs Mid)</th>
+                        <th class="right hide-mobile">Rank</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+<tr class="best-row">
+<td class="left">
+    <div class="company-name">Ria<span class="badge best-badge">🏆 Best</span></div>
+</td>
+<td class="right font-numeric">1.6161</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">16 161</td>
+<td class="right font-numeric">-</td>
+<td class="right font-numeric markup-good">-0.30%</td>
+<td class="right font-numeric hide-mobile"></td>
 </tr>
 
 <tr class="">
-<td class="left">Western Union</td>
-<td class="right">1.5680</td>
-<td class="right">0,00</td>
-<td class="right nowrap">15 680</td>
-<td class="right diff-bad">-481</td>
-<td class="right markup-mid">2.68%</td>
-<td class="right">5</td>
+<td class="left">
+    <div class="company-name">Galaxy Transfer</div>
+</td>
+<td class="right font-numeric">1.5842</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">15 842</td>
+<td class="right font-numeric"><span class="loss-text">-319 ERN</span></td>
+<td class="right font-numeric markup-good">1.68%</td>
+<td class="right font-numeric hide-mobile"><span class="badge rank-badge">#2</span></td>
 </tr>
 
 <tr class="">
-<td class="left">Riham Online</td>
-<td class="right">1.5054</td>
-<td class="right">0,00</td>
-<td class="right nowrap">15 054</td>
-<td class="right diff-bad">-1 107</td>
-<td class="right markup-bad">6.57%</td>
-<td class="right">6</td>
-</tr>
-
-</table>
-
-<h2 class="country-title">🇳🇴 Norway (NOK)</h2>
-<div class="bestbox">🏆 Best: Ria Money Transfer → 15 531 ERN</div>
-<div class="gainbox">💡 +640 ERN vs Hidmona Money Transfer</div>
-
-<table>
-<tr>
-<th>Company</th>
-<th>Rate</th>
-<th>Fee</th>
-<th>ERN</th>
-<th>Difference in NOK</th>
-<th>Markup vs mid-market</th>
-<th>Rank</th>
-</tr>
-
-<tr class="rank1">
-<td class="left">Ria Money Transfer</td>
-<td class="right">1.5551</td>
-<td class="right">20,00</td>
-<td class="right nowrap">15 531</td>
-<td class="right diff-good">0</td>
-<td class="right markup-good">1.23%</td>
-<td class="right">1</td>
+<td class="left">
+    <div class="company-name">Dahabshiil</div>
+</td>
+<td class="right font-numeric">1.5801</td>
+<td class="right font-numeric">30,00</td>
+<td class="right nowrap font-numeric highlight-ern">15 771</td>
+<td class="right font-numeric"><span class="loss-text">-390 ERN</span></td>
+<td class="right font-numeric markup-cell">2.12%</td>
+<td class="right font-numeric hide-mobile"><span class="badge rank-badge">#3</span></td>
 </tr>
 
 <tr class="">
-<td class="left">Remitly</td>
-<td class="right">1.5463</td>
-<td class="right">0,00</td>
-<td class="right nowrap">15 463</td>
-<td class="right diff-bad">-68</td>
-<td class="right markup-good">1.67%</td>
-<td class="right">2</td>
+<td class="left">
+    <div class="company-name">Remitly</div>
+</td>
+<td class="right font-numeric">1.5758</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">15 758</td>
+<td class="right font-numeric"><span class="loss-text">-403 ERN</span></td>
+<td class="right font-numeric markup-cell">2.20%</td>
+<td class="right font-numeric hide-mobile"><span class="badge rank-badge">#4</span></td>
 </tr>
 
 <tr class="">
-<td class="left">Transfer Galaxy</td>
-<td class="right">1.5423</td>
-<td class="right">0,00</td>
-<td class="right nowrap">15 423</td>
-<td class="right diff-bad">-108</td>
-<td class="right markup-good">1.92%</td>
-<td class="right">3</td>
+<td class="left">
+    <div class="company-name">Western Union</div>
+</td>
+<td class="right font-numeric">1.5680</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">15 680</td>
+<td class="right font-numeric"><span class="loss-text">-481 ERN</span></td>
+<td class="right font-numeric markup-cell">2.68%</td>
+<td class="right font-numeric hide-mobile"><span class="badge rank-badge">#5</span></td>
 </tr>
 
 <tr class="">
-<td class="left">Dahabshiil</td>
-<td class="right">1.4938</td>
-<td class="right">40,00</td>
-<td class="right nowrap">14 898</td>
-<td class="right diff-bad">-633</td>
-<td class="right markup-bad">5.26%</td>
-<td class="right">4</td>
+<td class="left">
+    <div class="company-name">Riham Online</div>
+</td>
+<td class="right font-numeric">1.5054</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">15 054</td>
+<td class="right font-numeric"><span class="loss-text">-1 107 ERN</span></td>
+<td class="right font-numeric markup-cell">6.57%</td>
+<td class="right font-numeric hide-mobile"><span class="badge rank-badge">#6</span></td>
+</tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- NOK Section -->
+    <h2 class="country-title">🇳🇴 Norway (NOK)</h2>
+    <div class="glass-card">
+        <div class="insight-boxes" style="margin-bottom: 1.5rem;">
+            <div class="bestbox">
+                <span class="icon">🏆</span> 
+                <span>Top Pick: <b>Ria Money Transfer</b> delivers <b>15 531 ERN</b></span>
+            </div>
+            <div class="gainbox">
+                <span class="icon">💡</span> 
+                <span>Smart Move: You get <b>+640 ERN</b> more with Ria Money Transfer vs Hidmona Money Transfer</span>
+            </div>
+        </div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="left">Provider</th>
+                        <th class="right">Exchange Rate</th>
+                        <th class="right">Fee</th>
+                        <th class="right">You Receive (ERN)</th>
+                        <th class="right">Diff vs Best (ERN)</th>
+                        <th class="right">Hidden Fee (vs Mid)</th>
+                        <th class="right hide-mobile">Rank</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+<tr class="best-row">
+<td class="left">
+    <div class="company-name">Ria Money Transfer<span class="badge best-badge">🏆 Best</span></div>
+</td>
+<td class="right font-numeric">1.5551</td>
+<td class="right font-numeric">20,00</td>
+<td class="right nowrap font-numeric highlight-ern">15 531</td>
+<td class="right font-numeric">-</td>
+<td class="right font-numeric markup-good">1.23%</td>
+<td class="right font-numeric hide-mobile"></td>
 </tr>
 
 <tr class="">
-<td class="left">Hidmona Money Transfer</td>
-<td class="right">1.4891</td>
-<td class="right">0,00</td>
-<td class="right nowrap">14 891</td>
-<td class="right diff-bad">-640</td>
-<td class="right markup-bad">5.30%</td>
-<td class="right">5</td>
-</tr>
-
-</table>
-
-<h2 class="country-title">🇩🇰 Denmark (DKK)</h2>
-<div class="bestbox">🏆 Best: Ria Money Transfer → 23 351 ERN</div>
-<div class="gainbox">💡 +1 089 ERN vs Western Union</div>
-
-<table>
-<tr>
-<th>Company</th>
-<th>Rate</th>
-<th>Fee</th>
-<th>ERN</th>
-<th>Difference in DKK</th>
-<th>Markup vs mid-market</th>
-<th>Rank</th>
-</tr>
-
-<tr class="rank1">
-<td class="left">Ria Money Transfer</td>
-<td class="right">2.3393</td>
-<td class="right">42,00</td>
-<td class="right nowrap">23 351</td>
-<td class="right diff-good">0</td>
-<td class="right markup-good">0.25%</td>
-<td class="right">1</td>
+<td class="left">
+    <div class="company-name">Remitly</div>
+</td>
+<td class="right font-numeric">1.5463</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">15 463</td>
+<td class="right font-numeric"><span class="loss-text">-68 ERN</span></td>
+<td class="right font-numeric markup-good">1.67%</td>
+<td class="right font-numeric hide-mobile"><span class="badge rank-badge">#2</span></td>
 </tr>
 
 <tr class="">
-<td class="left">Transfer Galaxy</td>
-<td class="right">2.3033</td>
-<td class="right">0,00</td>
-<td class="right nowrap">23 033</td>
-<td class="right diff-bad">-318</td>
-<td class="right markup-good">1.61%</td>
-<td class="right">2</td>
+<td class="left">
+    <div class="company-name">Transfer Galaxy</div>
+</td>
+<td class="right font-numeric">1.5423</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">15 423</td>
+<td class="right font-numeric"><span class="loss-text">-108 ERN</span></td>
+<td class="right font-numeric markup-good">1.92%</td>
+<td class="right font-numeric hide-mobile"><span class="badge rank-badge">#3</span></td>
 </tr>
 
 <tr class="">
-<td class="left">Hidmona Money Transfer</td>
-<td class="right">2.2952</td>
-<td class="right">0,00</td>
-<td class="right nowrap">22 952</td>
-<td class="right diff-bad">-399</td>
-<td class="right markup-good">1.95%</td>
-<td class="right">3</td>
+<td class="left">
+    <div class="company-name">Dahabshiil</div>
+</td>
+<td class="right font-numeric">1.4938</td>
+<td class="right font-numeric">40,00</td>
+<td class="right nowrap font-numeric highlight-ern">14 898</td>
+<td class="right font-numeric"><span class="loss-text">-633 ERN</span></td>
+<td class="right font-numeric markup-cell">5.26%</td>
+<td class="right font-numeric hide-mobile"><span class="badge rank-badge">#4</span></td>
 </tr>
 
 <tr class="">
-<td class="left">Remitly</td>
-<td class="right">2.2889</td>
-<td class="right">0,00</td>
-<td class="right nowrap">22 889</td>
-<td class="right diff-bad">-462</td>
-<td class="right markup-mid">2.22%</td>
-<td class="right">4</td>
+<td class="left">
+    <div class="company-name">Hidmona Money Transfer</div>
+</td>
+<td class="right font-numeric">1.4891</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">14 891</td>
+<td class="right font-numeric"><span class="loss-text">-640 ERN</span></td>
+<td class="right font-numeric markup-cell">5.30%</td>
+<td class="right font-numeric hide-mobile"><span class="badge rank-badge">#5</span></td>
+</tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- DKK Section -->
+    <h2 class="country-title">🇩🇰 Denmark (DKK)</h2>
+    <div class="glass-card">
+        <div class="insight-boxes" style="margin-bottom: 1.5rem;">
+            <div class="bestbox">
+                <span class="icon">🏆</span> 
+                <span>Top Pick: <b>Ria Money Transfer</b> delivers <b>23 351 ERN</b></span>
+            </div>
+            <div class="gainbox">
+                <span class="icon">💡</span> 
+                <span>Smart Move: You get <b>+1 089 ERN</b> more with Ria Money Transfer vs Western Union</span>
+            </div>
+        </div>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="left">Provider</th>
+                        <th class="right">Exchange Rate</th>
+                        <th class="right">Fee</th>
+                        <th class="right">You Receive (ERN)</th>
+                        <th class="right">Diff vs Best (ERN)</th>
+                        <th class="right">Hidden Fee (vs Mid)</th>
+                        <th class="right hide-mobile">Rank</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+<tr class="best-row">
+<td class="left">
+    <div class="company-name">Ria Money Transfer<span class="badge best-badge">🏆 Best</span></div>
+</td>
+<td class="right font-numeric">2.3393</td>
+<td class="right font-numeric">42,00</td>
+<td class="right nowrap font-numeric highlight-ern">23 351</td>
+<td class="right font-numeric">-</td>
+<td class="right font-numeric markup-good">0.25%</td>
+<td class="right font-numeric hide-mobile"></td>
 </tr>
 
 <tr class="">
-<td class="left">Western Union</td>
-<td class="right">2.2261</td>
-<td class="right">0,00</td>
-<td class="right nowrap">22 261</td>
-<td class="right diff-bad">-1 089</td>
-<td class="right markup-bad">4.90%</td>
-<td class="right">5</td>
+<td class="left">
+    <div class="company-name">Transfer Galaxy</div>
+</td>
+<td class="right font-numeric">2.3033</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">23 033</td>
+<td class="right font-numeric"><span class="loss-text">-318 ERN</span></td>
+<td class="right font-numeric markup-good">1.61%</td>
+<td class="right font-numeric hide-mobile"><span class="badge rank-badge">#2</span></td>
 </tr>
 
-</table>
+<tr class="">
+<td class="left">
+    <div class="company-name">Hidmona Money Transfer</div>
+</td>
+<td class="right font-numeric">2.2952</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">22 952</td>
+<td class="right font-numeric"><span class="loss-text">-399 ERN</span></td>
+<td class="right font-numeric markup-good">1.95%</td>
+<td class="right font-numeric hide-mobile"><span class="badge rank-badge">#3</span></td>
+</tr>
 
-<div class="chart">
+<tr class="">
+<td class="left">
+    <div class="company-name">Remitly</div>
+</td>
+<td class="right font-numeric">2.2889</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">22 889</td>
+<td class="right font-numeric"><span class="loss-text">-462 ERN</span></td>
+<td class="right font-numeric markup-cell">2.22%</td>
+<td class="right font-numeric hide-mobile"><span class="badge rank-badge">#4</span></td>
+</tr>
 
-<h3>📈 Last 7 days trend</h3>
+<tr class="">
+<td class="left">
+    <div class="company-name">Western Union</div>
+</td>
+<td class="right font-numeric">2.2261</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">22 261</td>
+<td class="right font-numeric"><span class="loss-text">-1 089 ERN</span></td>
+<td class="right font-numeric markup-cell">4.90%</td>
+<td class="right font-numeric hide-mobile"><span class="badge rank-badge">#5</span></td>
+</tr>
 
-<h4>🇸🇪 SEK / ERN</h4>
-<img src="sek_chart.png" style="width:100%; max-width:600px; margin-bottom:20px;">
+                </tbody>
+            </table>
+        </div>
+    </div>
 
-<h4>🇳🇴 NOK / ERN</h4>
-<img src="nok_chart.png" style="width:100%; max-width:600px; margin-bottom:20px;">
-
-<h4>🇩🇰 DKK / ERN</h4>
-<img src="dkk_chart.png" style="width:100%; max-width:600px;">
+    <h2 class="country-title">📈 7-Day Trend</h2>
+    <div class="glass-card">
+        <div class="chart-grid">
+            <div class="chart-card">
+                <h4>🇸🇪 SEK / ERN</h4>
+                <img src="sek_chart.png" alt="SEK Chart">
+            </div>
+            <div class="chart-card">
+                <h4>🇳🇴 NOK / ERN</h4>
+                <img src="nok_chart.png" alt="NOK Chart">
+            </div>
+            <div class="chart-card">
+                <h4>🇩🇰 DKK / ERN</h4>
+                <img src="dkk_chart.png" alt="DKK Chart">
+            </div>
+        </div>
+    </div>
 
 </div>
 
