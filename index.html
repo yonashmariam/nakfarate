@@ -410,6 +410,117 @@ body {
     border: 1px solid var(--info-border);
 }
 
+.calculator-card {
+    margin-top: 1.25rem;
+    padding: 1.25rem;
+    border: 1px solid var(--info-border);
+    border-radius: 8px;
+    background: var(--info-light);
+    text-align: left;
+}
+
+.calculator-header h2 {
+    color: var(--brand-blue);
+    font-size: 1.15rem;
+    margin-bottom: 0.25rem;
+}
+
+.calculator-header p {
+    color: var(--text-muted);
+    font-size: 0.86rem;
+    margin-bottom: 1rem;
+}
+
+.calculator-form label {
+    display: block;
+    color: var(--text-main);
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.calculator-input-row {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.calculator-input-row input,
+.calculator-input-row select {
+    min-height: 44px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: white;
+    color: var(--text-main);
+    font: inherit;
+    font-size: 1rem;
+    padding: 0.65rem 0.75rem;
+}
+
+.calculator-input-row input {
+    min-width: 0;
+    flex: 1;
+}
+
+.calculator-input-row select {
+    width: 92px;
+    font-weight: 700;
+}
+
+.calculator-input-row input:focus,
+.calculator-input-row select:focus {
+    outline: 2px solid var(--accent-blue);
+    outline-offset: 1px;
+}
+
+.calculator-error {
+    min-height: 1.25rem;
+    color: var(--danger);
+    font-size: 0.78rem;
+    margin-top: 0.35rem;
+}
+
+.calculator-result {
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--info-border);
+}
+
+.calculator-result-label {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.calculator-ern {
+    color: var(--success);
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0.2rem 0 0.25rem;
+}
+
+.calculator-provider {
+    color: var(--brand-blue);
+    font-weight: 700;
+    font-size: 0.92rem;
+}
+
+.calculator-rate,
+.calculator-fee {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    margin-top: 0.15rem;
+}
+
+.calculator-note {
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    line-height: 1.45;
+    margin-top: 0.7rem;
+}
+
 .table-container {
     overflow-x: auto;
     border: 1px solid var(--border-color);
@@ -617,6 +728,37 @@ tr:hover {
             <h1 data-i18n="hero-title">Compare Nordic Money Transfer Rates to Eritrea</h1>
             <p data-i18n="hero-subtitle">Real-time exchange rates & fees for sending money from Sweden (SEK), Norway (NOK), and Denmark (DKK) to Eritrea (ERN).</p>
             <div class="banner" data-i18n="benchmark">Calculation Benchmark: 10 000 local currency (SEK / NOK / DKK)</div>
+
+            <div class="calculator-card" aria-labelledby="calculator-title">
+                <div class="calculator-header">
+                    <div>
+                        <h2 id="calculator-title" data-i18n="calculator-title">💱 How much will they receive?</h2>
+                        <p data-i18n="calculator-subtitle">Calculate the actual ERN payout using today's best available money transfer rate.</p>
+                    </div>
+                </div>
+
+                <div class="calculator-form">
+                    <label for="calculator-amount" data-i18n="calculator-amount-label">I want to send</label>
+                    <div class="calculator-input-row">
+                        <input id="calculator-amount" type="number" min="1" step="1" value="10000" inputmode="decimal" aria-describedby="calculator-error">
+                        <select id="calculator-currency" aria-label="Sending currency">
+                            <option value="SEK">SEK</option>
+                            <option value="NOK">NOK</option>
+                            <option value="DKK">DKK</option>
+                        </select>
+                    </div>
+                    <div id="calculator-error" class="calculator-error" role="alert" aria-live="polite"></div>
+                </div>
+
+                <div class="calculator-result" aria-live="polite">
+                    <div class="calculator-result-label" data-i18n="calculator-recipient-label">Recipient receives</div>
+                    <div id="calculator-ern" class="calculator-ern">— ERN</div>
+                    <div id="calculator-provider" class="calculator-provider">—</div>
+                    <div id="calculator-rate" class="calculator-rate">Rate: —</div>
+                    <div id="calculator-fee" class="calculator-fee">Fee: —</div>
+                    <div class="calculator-note" data-i18n="calculator-note">Best payout is recalculated for the amount you enter using the same rate and fee calculation as the comparison table.</div>
+                </div>
+            </div>
         </div>
 
         <div class="mid-market-card">
@@ -1019,7 +1161,7 @@ tr:hover {
         "fee": "ክፍሊት",
         "you-receive": "ትቕበሉ (ERN)",
         "difference": "ምስ ዝበለጸ ሸርፊ ፍልልይ",
-        "hidden-fee": "ዘይግሉጽ ክፍሊት",
+        "hidden-fee": "ዘግሉጽ ክፍሊት",
         "rank": "ደረጃ",
         "trend-history": "📈 ናይ 30 መዓልቲ ምንቅስቓስ",
         "sek-title": "SEK ናብ ERN ዋጋ ሸርፊ",
@@ -1027,10 +1169,83 @@ tr:hover {
         "dkk-title": "DKK ናብ ERN ዋጋ ሸርፊ",
         "sek-corridor": "ሽወደን (SEK ናብ ERN)",
         "nok-corridor": "ኖርወይ (NOK ናብ ERN)",
-        "dkk-corridor": "ደንማርክ (DKK ናብ ERN)"
+        "dkk-corridor": "ደንማርክ (DKK ናብ ERN)",
+        "calculator-title": "💱 ክንደይ ክቕበሉ እዮም?",
+        "calculator-subtitle": "ብሎሚ ዘሎ ዝበለጸ ናይ ገንዘብ ምልኣኽ ዋጋ ተጠቒምካ ትኽክለኛ ክፍሊት ERN ሕሰብ።",
+        "calculator-amount-label": "ክልእኽ ዝደሊ",
+        "calculator-recipient-label": "ተቐባሊ ዝቕበሎ",
+        "calculator-note": "እቲ ዝበለጸ ክፍሊት ንዝኣተኻዮ መጠን ብተመሳሳሊ ሕሳብ ዋጋን ክፍሊትን ከም ሰንጠረዥ ይደጋገም።"
     };
+
+    const calculatorData = {"SEK": [{"provider": "Transfer Galaxy", "rate": 1.5073, "total_fee": 0.0}, {"provider": "Ria", "rate": 1.487, "total_fee": 0.0}, {"provider": "Western Union", "rate": 1.4693, "total_fee": 0.0}, {"provider": "Remitly", "rate": 1.4665, "total_fee": 0.0}, {"provider": "Dahabshiil", "rate": 1.4652, "total_fee": 0.0}], "NOK": [{"provider": "Transfer Galaxy", "rate": 1.5728, "total_fee": 0.0}, {"provider": "Ria Money Transfer", "rate": 1.53, "total_fee": 0.0}, {"provider": "Remitly", "rate": 1.5259, "total_fee": 0.0}, {"provider": "Hidmona Money Transfer", "rate": 1.4986, "total_fee": 0.0}, {"provider": "Dahabshiil", "rate": 1.4801, "total_fee": 0.0}], "DKK": [{"provider": "Transfer Galaxy", "rate": 2.2769, "total_fee": 0.0}, {"provider": "Ria Money Transfer", "rate": 2.24, "total_fee": 0.0}, {"provider": "Hidmona Money Transfer", "rate": 2.2387, "total_fee": 0.0}, {"provider": "Remitly", "rate": 2.222, "total_fee": 0.0}, {"provider": "Western Union", "rate": 2.1707, "total_fee": 0.0}]};
     const labels = [...document.querySelectorAll('[data-i18n]')];
     const english = new Map(labels.map(el => [el, el.innerHTML]));
+
+    const calculatorAmount = document.getElementById('calculator-amount');
+    const calculatorCurrency = document.getElementById('calculator-currency');
+    const calculatorErn = document.getElementById('calculator-ern');
+    const calculatorProvider = document.getElementById('calculator-provider');
+    const calculatorRate = document.getElementById('calculator-rate');
+    const calculatorFee = document.getElementById('calculator-fee');
+    const calculatorError = document.getElementById('calculator-error');
+
+    function formatCalculatorNumber(value) {
+        return Math.round(value).toLocaleString('en-US').replace(/,/g, ' ');
+    }
+
+    function formatCalculatorRate(value) {
+        return Number(value).toFixed(4);
+    }
+
+    function updateCalculator() {
+        if (!calculatorAmount || !calculatorCurrency) return;
+
+        const amountValue = Number(calculatorAmount.value);
+        const currency = calculatorCurrency.value;
+        const providers = calculatorData[currency] || [];
+
+        if (!Number.isFinite(amountValue) || amountValue <= 0) {
+            calculatorError.textContent = 'Enter an amount greater than 0.';
+            calculatorErn.textContent = '— ERN';
+            calculatorProvider.textContent = '—';
+            calculatorRate.textContent = 'Rate: —';
+            calculatorFee.textContent = 'Fee: —';
+            return;
+        }
+
+        if (!providers.length) {
+            calculatorError.textContent = 'No transfer rates are available for this currency today.';
+            calculatorErn.textContent = '— ERN';
+            calculatorProvider.textContent = '—';
+            calculatorRate.textContent = 'Rate: —';
+            calculatorFee.textContent = 'Fee: —';
+            return;
+        }
+
+        calculatorError.textContent = '';
+
+        // This is the same formula used by process_country():
+        // ERN_amount = Rate × amount - Total_fee.
+        const results = providers.map(provider => ({
+            ...provider,
+            ern: provider.rate * amountValue - provider.total_fee
+        }));
+
+        const best = results.reduce((current, candidate) =>
+            candidate.ern > current.ern ? candidate : current
+        );
+
+        calculatorErn.textContent = `${formatCalculatorNumber(best.ern)} ERN`;
+        calculatorProvider.textContent = `🏆 ${best.provider} — best payout for this amount`;
+        calculatorRate.textContent = `Rate: ${formatCalculatorRate(best.rate)} ERN per ${currency}`;
+        calculatorFee.textContent = `Fee: ${best.total_fee.toLocaleString('en-US', {maximumFractionDigits: 2}).replace(/,/g, ' ')} ${currency}`;
+    }
+
+    if (calculatorAmount && calculatorCurrency) {
+        calculatorAmount.addEventListener('input', updateCalculator);
+        calculatorCurrency.addEventListener('change', updateCalculator);
+        updateCalculator();
+    }
 
     function setLanguage(language) {
         document.documentElement.lang = language === 'ti' ? 'ti' : 'en';
@@ -1039,11 +1254,11 @@ tr:hover {
             if (language === 'en') {
                 el.innerHTML = english.get(el);
             } else if (key === 'top-pick') {
-                const values = [...english.get(el).matchAll(/<b>(.*?)<\/b>/g)].map(match => match[1].trim());
-                el.innerHTML = `ዝበለጸ ምርጫ፦ <b>${values[0] || ''}</b> የብጽሕ <b>${values[1] || ''}</b>`;
+                const values = [...english.get(el).matchAll(/<b>(.*?)<\/b>/g)].map(match => match[1]);
+                el.innerHTML = `ዝበለጸ ምርጫ፦ <b>${values[0]}</b> <b>${values[1]}</b> ERN የብጽሕ`;
             } else if (key === 'smart-move') {
-                const values = [...english.get(el).matchAll(/<b>(.*?)<\/b>/g)].map(match => match[1].trim());
-                el.innerHTML = `ዝበዘሔ ናቅፋ ፦ ብ <b>${values[0] || ''}</b> ምስ <b>${values[1] || ''}</b> ካብ ምስ <b>${values[2] || ''}</b> ትረኽቦ`;
+                const values = [...english.get(el).matchAll(/<b>(.*?)<\/b>/g)].map(match => match[1]);
+                el.innerHTML = `ዝበለጸ ምርጫ፦ ብ <b>${values[0]}</b> ERN ምስ <b>${values[1]}</b> ዝያዳ ትቕበሉ`;
             } else if (key.endsWith('-sending')) {
                 el.textContent = `ዝለኣኽ ገንዘብ፦ ${english.get(el).split(':').slice(1).join(':').trim()}`;
             } else if (key === 'fee') {
