@@ -125,8 +125,8 @@ body {
 
 .top-bar {
     background-color: #ffffff;
-    padding: 0.45rem 0 0.6rem;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--border-color);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -136,52 +136,53 @@ body {
     max-width: 1000px;
     margin: 0 auto;
     padding: 0 1rem;
+    min-height: 60px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    gap: 1rem;
 }
 
 .logo-block {
     display: flex;
     align-items: center;
-    justify-content: center;
-    color: white;
-    text-decoration: none;
+    flex: 0 0 auto;
 }
 
 .logo-frame {
-    width: 215px;
-    height: 72px;
+    width: 170px;
+    height: 52px;
     overflow: hidden;
     display: flex;
     align-items: flex-start;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .logo-block img {
-    width: 310px;
+    width: 238px;
     height: auto;
     max-width: none;
-    transform: translateY(-53px);
+    transform: translate(-2px, -40px);
 }
 
 .corridor-nav {
     display: flex;
-    justify-content: center;
-    gap: 0.6rem;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.55rem;
     flex-wrap: wrap;
-    margin-top: 0.25rem;
 }
 
 .corridor-nav a {
     color: var(--brand-blue);
-    background: #eef2fb;
-    border: 1px solid #c7d2fe;
+    background: #ffffff;
+    border: 1px solid #d9e0ec;
     border-radius: 999px;
-    padding: 0.35rem 0.8rem;
+    padding: 0.48rem 1rem;
     text-decoration: none;
     font-size: 0.85rem;
     font-weight: 700;
+    white-space: nowrap;
 }
 
 .corridor-nav a:hover, .corridor-nav a:focus-visible {
@@ -213,6 +214,10 @@ body {
     color: #ffffff;
 }
 
+.footer-language-tabs {
+    margin-top: 0;
+}
+
 .logo-text {
     font-size: 1.5rem;
     font-weight: 700;
@@ -229,31 +234,29 @@ body {
     display: block;
 }
 
-/* Dedicated currency pages use a compact desktop dashboard while preserving
-   a single-column reading order on phones. */
+/* Desktop dashboard: calculator + mid-market above; provider comparison + trend below. */
 @media (min-width: 900px) {
-    .corridor-page .container { max-width: 1180px; }
-    .corridor-page .dashboard-top {
+    .dashboard-top {
         display: grid;
         grid-template-columns: minmax(390px, 0.9fr) minmax(420px, 1.1fr);
         gap: 1.25rem;
         align-items: start;
     }
-    .corridor-page .dashboard-content {
+    .dashboard-content {
         display: grid;
         grid-template-columns: minmax(0, 1fr) minmax(410px, 1.1fr);
         gap: 1.25rem;
         align-items: start;
     }
-    .corridor-page .header-banner,
-    .corridor-page .mid-market-card { margin-bottom: 1.25rem; }
-    .corridor-page .dashboard-content > .mid-market-card { margin-top: 0 !important; }
-    .corridor-page .card-body { padding: 1rem; }
-    .corridor-page .dashboard-content table { min-width: 610px; }
-    .corridor-page .dashboard-content th,
-    .corridor-page .dashboard-content td { padding: 0.65rem 0.45rem; font-size: 0.74rem; }
-    .corridor-page .dashboard-content .highlight-ern { font-size: 0.9rem; }
-    .corridor-page .guide-card { width: 78%; margin-left: auto; margin-right: auto; }
+    .dashboard-top .mid-market-card,
+    .dashboard-content > .mid-market-card { margin-bottom: 1.25rem; }
+    .dashboard-content > .mid-market-card { margin-top: 0 !important; }
+    .card-body { padding: 1rem; }
+    .dashboard-content table { min-width: 610px; }
+    .dashboard-content th,
+    .dashboard-content td { padding: 0.65rem 0.45rem; font-size: 0.74rem; }
+    .dashboard-content .highlight-ern { font-size: 0.9rem; }
+    .guide-card { width: 78%; margin-left: auto; margin-right: auto; }
 }
 
 .header-banner {
@@ -410,8 +413,65 @@ body {
     border: 1px solid var(--info-border);
 }
 
+.trend-summary {
+    margin-bottom: 1.25rem;
+}
+
+.trend-summary h2 {
+    color: var(--brand-blue);
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+}
+
+.trend-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.trend-summary-card {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.85rem 1rem 0.65rem;
+    min-width: 0;
+}
+
+.trend-summary-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.35rem;
+}
+
+.trend-currency {
+    color: var(--brand-blue);
+    font-size: 0.88rem;
+    font-weight: 700;
+}
+
+.trend-change {
+    font-size: 0.8rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.trend-up { color: #008b72; }
+.trend-down { color: #d13b3b; }
+
+.sparkline {
+    width: 100%;
+    height: 48px;
+    display: block;
+}
+
+@media (max-width: 700px) {
+    .trend-summary-grid { grid-template-columns: 1fr; }
+}
+
 .calculator-card {
-    margin-top: 1.25rem;
+    margin-top: 0;
     padding: 1.25rem;
     border: 1px solid var(--info-border);
     border-radius: 8px;
@@ -462,7 +522,7 @@ body {
 }
 
 .calculator-input-row select {
-    width: 92px;
+    width: 112px;
     font-weight: 700;
 }
 
@@ -695,8 +755,11 @@ tr:hover {
     .card-body { padding: 1rem; }
     .card-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
     .mid-market-meta { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
-    .logo-frame { width: 185px; height: 62px; }
-    .logo-block img { width: 270px; transform: translateY(-46px); }
+    .top-bar-container { min-height: 56px; padding: 0 0.75rem; }
+    .logo-frame { width: 145px; height: 48px; }
+    .logo-block img { width: 205px; transform: translate(-2px, -34px); }
+    .corridor-nav { gap: 0.35rem; }
+    .corridor-nav a { padding: 0.4rem 0.65rem; font-size: 0.76rem; }
 }
 </style>
 </head>
@@ -710,54 +773,75 @@ tr:hover {
             </a>
             <span class="logo-text"></span>
         </div>
-    </div>
-    <nav class="corridor-nav" aria-label="Exchange corridors">
-        <a href="/sek-to-ern/">SEK to ERN</a>
-        <a href="/nok-to-ern/">NOK to ERN</a>
-        <a href="/dkk-to-ern/">DKK to ERN</a>
-    </nav>
-    <div class="language-tabs" aria-label="Language selection">
-        <button type="button" data-language="en" aria-pressed="true">English</button>
-        <button type="button" data-language="ti" aria-pressed="false">ትግርኛ</button>
+        <nav class="corridor-nav" aria-label="Exchange corridors">
+            <a href="/sek-to-ern/">Sweden</a>
+            <a href="/nok-to-ern/">Norway</a>
+            <a href="/dkk-to-ern/">Denmark</a>
+        </nav>
     </div>
 </div>
 
 <div class="container">
+    <section class="trend-summary" aria-labelledby="trend-summary-title">
+        <h2 id="trend-summary-title" data-i18n="trend-summary-title">30-day trend</h2>
+        <div class="trend-summary-grid">
+            
+        <div class="trend-summary-card">
+            <div class="trend-summary-top">
+                <span class="trend-currency">SEK / ERN</span>
+                <span class="trend-change trend-down">▼ 5.0%</span>
+            </div>
+            <svg class="sparkline" viewBox="0 0 180 48" role="img" aria-label="SEK 30-day rate trend"><polyline points="3.0,5.0 9.0,7.6 15.0,8.1 21.0,10.1 27.0,7.3 33.0,12.2 39.0,12.0 45.0,18.8 51.0,17.6 57.0,21.5 63.0,18.9 69.0,12.8 75.0,17.3 81.0,18.1 87.0,16.8 93.0,17.0 99.0,24.8 105.0,28.6 111.0,31.7 117.0,31.5 123.0,36.7 129.0,33.7 135.0,33.7 141.0,33.7 147.0,35.5 153.0,37.3 159.0,42.1 165.0,43.0 171.0,43.0 177.0,43.0" fill="none" stroke="#009f83" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+        </div>
+
+        <div class="trend-summary-card">
+            <div class="trend-summary-top">
+                <span class="trend-currency">NOK / ERN</span>
+                <span class="trend-change trend-down">▼ 2.2%</span>
+            </div>
+            <svg class="sparkline" viewBox="0 0 180 48" role="img" aria-label="NOK 30-day rate trend"><polyline points="3.0,19.6 9.0,20.8 15.0,17.9 21.0,17.0 27.0,20.4 33.0,22.3 39.0,19.7 45.0,24.5 51.0,23.0 57.0,21.7 63.0,17.6 69.0,15.5 75.0,17.9 81.0,12.9 87.0,6.7 93.0,5.0 99.0,15.2 105.0,17.8 111.0,21.7 117.0,21.3 123.0,30.6 129.0,29.8 135.0,29.8 141.0,29.8 147.0,31.9 153.0,36.1 159.0,39.0 165.0,43.0 171.0,43.0 177.0,43.0" fill="none" stroke="#009f83" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+        </div>
+
+        <div class="trend-summary-card">
+            <div class="trend-summary-top">
+                <span class="trend-currency">DKK / ERN</span>
+                <span class="trend-change trend-down">▼ 2.6%</span>
+            </div>
+            <svg class="sparkline" viewBox="0 0 180 48" role="img" aria-label="DKK 30-day rate trend"><polyline points="3.0,6.5 9.0,5.0 15.0,6.3 21.0,8.5 27.0,8.2 33.0,9.2 39.0,10.1 45.0,16.8 51.0,15.2 57.0,18.9 63.0,16.1 69.0,12.7 75.0,14.5 81.0,12.7 87.0,11.7 93.0,11.3 99.0,14.7 105.0,19.8 111.0,23.2 117.0,22.3 123.0,31.6 129.0,29.0 135.0,29.0 141.0,29.0 147.0,30.2 153.0,36.3 159.0,41.3 165.0,43.0 171.0,43.0 177.0,43.0" fill="none" stroke="#009f83" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></polyline></svg>
+        </div>
+
+        </div>
+    </section>
+
     <div class="dashboard-top">
-        <div class="header-banner">
-            <h1 data-i18n="hero-title">Compare Nordic Money Transfer Rates to Eritrea</h1>
-            <p data-i18n="hero-subtitle">Real-time exchange rates & fees for sending money from Sweden (SEK), Norway (NOK), and Denmark (DKK) to Eritrea (ERN).</p>
-            <div class="banner" data-i18n="benchmark">Calculation Benchmark: 10 000 local currency (SEK / NOK / DKK)</div>
-
-            <div class="calculator-card" aria-labelledby="calculator-title">
-                <div class="calculator-header">
-                    <div>
-                        <h2 id="calculator-title" data-i18n="calculator-title">💱 How much will they receive?</h2>
-                        <p data-i18n="calculator-subtitle">Calculate the actual ERN payout using today's best available money transfer rate.</p>
-                    </div>
+        <div class="calculator-card calculator-card-top" aria-labelledby="calculator-title">
+            <div class="calculator-header">
+                <div>
+                    <h2 id="calculator-title" data-i18n="calculator-title">💱 How much will they receive?</h2>
+                    <p data-i18n="calculator-subtitle">Calculate the actual ERN payout using today's best available money transfer rate.</p>
                 </div>
+            </div>
 
-                <div class="calculator-form">
-                    <label for="calculator-amount" data-i18n="calculator-amount-label">I want to send</label>
-                    <div class="calculator-input-row">
-                        <input id="calculator-amount" type="number" min="1" step="1" value="10000" inputmode="decimal" aria-describedby="calculator-error">
-                        <select id="calculator-currency" aria-label="Sending currency">
-                            <option value="SEK">SEK</option>
-                            <option value="NOK">NOK</option>
-                            <option value="DKK">DKK</option>
-                        </select>
-                    </div>
-                    <div id="calculator-error" class="calculator-error" role="alert" aria-live="polite"></div>
+            <div class="calculator-form">
+                <label for="calculator-amount" data-i18n="calculator-amount-label">I want to send</label>
+                <div class="calculator-input-row">
+                    <input id="calculator-amount" type="number" min="1" step="1" value="10000" inputmode="decimal" aria-describedby="calculator-error">
+                    <select id="calculator-currency" aria-label="Sending currency">
+                        <option value="SEK">SEK</option>
+                        <option value="NOK">NOK</option>
+                        <option value="DKK">DKK</option>
+                    </select>
                 </div>
+                <div id="calculator-error" class="calculator-error" role="alert" aria-live="polite"></div>
+            </div>
 
-                <div class="calculator-result" aria-live="polite">
-                    <div class="calculator-result-label" data-i18n="calculator-recipient-label">Recipient receives</div>
-                    <div id="calculator-ern" class="calculator-ern">— ERN</div>
-                    <div id="calculator-provider" class="calculator-provider">—</div>
-                    <div id="calculator-rate" class="calculator-rate">Rate: —</div>
-                    <div id="calculator-fee" class="calculator-fee">Fee: —</div>
-                    <div class="calculator-note" data-i18n="calculator-note">Best payout is recalculated for the amount you enter using the same rate and fee calculation as the comparison table.</div>
-                </div>
+            <div class="calculator-result" aria-live="polite">
+                <div class="calculator-result-label" data-i18n="calculator-recipient-label">Recipient receives</div>
+                <div id="calculator-ern" class="calculator-ern">— ERN</div>
+                <div id="calculator-provider" class="calculator-provider">—</div>
+                <div id="calculator-rate" class="calculator-rate">Rate: —</div>
+                <div id="calculator-fee" class="calculator-fee">Fee: —</div>
+                <div class="calculator-note" data-i18n="calculator-note">Best payout is recalculated for the amount you enter using the same rate and fee calculation as the comparison table.</div>
             </div>
         </div>
 
@@ -1174,7 +1258,8 @@ tr:hover {
         "calculator-subtitle": "ብሎሚ ዘሎ ዝበለጸ ናይ ገንዘብ ምልኣኽ ዋጋ ተጠቒምካ ትኽክለኛ ክፍሊት ERN ሕሰብ።",
         "calculator-amount-label": "ክልእኽ ዝደሊ",
         "calculator-recipient-label": "ተቐባሊ ዝቕበሎ",
-        "calculator-note": "እቲ ዝበለጸ ክፍሊት ንዝኣተኻዮ መጠን ብተመሳሳሊ ሕሳብ ዋጋን ክፍሊትን ከም ሰንጠረዥ ይደጋገም።"
+        "calculator-note": "እቲ ዝበለጸ ክፍሊት ንዝኣተኻዮ መጠን ብተመሳሳሊ ሕሳብ ዋጋን ክፍሊትን ከም ሰንጠረዥ ይደጋገም።",
+        "trend-summary-title": "📈 30 መዓልቲ ምንቅስቓስ"
     };
 
     const calculatorData = {"SEK": [{"provider": "Transfer Galaxy", "rate": 1.5073, "total_fee": 0.0}, {"provider": "Ria", "rate": 1.487, "total_fee": 0.0}, {"provider": "Western Union", "rate": 1.4693, "total_fee": 0.0}, {"provider": "Remitly", "rate": 1.4665, "total_fee": 0.0}, {"provider": "Dahabshiil", "rate": 1.4652, "total_fee": 0.0}], "NOK": [{"provider": "Transfer Galaxy", "rate": 1.5728, "total_fee": 0.0}, {"provider": "Ria Money Transfer", "rate": 1.53, "total_fee": 0.0}, {"provider": "Remitly", "rate": 1.5259, "total_fee": 0.0}, {"provider": "Hidmona Money Transfer", "rate": 1.4986, "total_fee": 0.0}, {"provider": "Dahabshiil", "rate": 1.4801, "total_fee": 0.0}], "DKK": [{"provider": "Transfer Galaxy", "rate": 2.2769, "total_fee": 0.0}, {"provider": "Ria Money Transfer", "rate": 2.24, "total_fee": 0.0}, {"provider": "Hidmona Money Transfer", "rate": 2.2387, "total_fee": 0.0}, {"provider": "Remitly", "rate": 2.222, "total_fee": 0.0}, {"provider": "Western Union", "rate": 2.1707, "total_fee": 0.0}]};
@@ -1254,11 +1339,11 @@ tr:hover {
             if (language === 'en') {
                 el.innerHTML = english.get(el);
             } else if (key === 'top-pick') {
-                const values = [...english.get(el).matchAll(/<b>(.*?)<\/b>/g)].map(match => match[1]);
-                el.innerHTML = `ዝበለጸ ምርጫ፦ <b>${values[0]}</b> <b>${values[1]}</b> ERN የብጽሕ`;
+                const values = [...english.get(el).matchAll(/<b>(.*?)<\/b>/g)].map(match => match[1].trim());
+                el.innerHTML = `ዝበለጸ ምርጫ፦ <b>${values[0] || ''}</b> የብጽሕ <b>${values[1] || ''}</b>`;
             } else if (key === 'smart-move') {
-                const values = [...english.get(el).matchAll(/<b>(.*?)<\/b>/g)].map(match => match[1]);
-                el.innerHTML = `ዝበለጸ ምርጫ፦ ብ <b>${values[0]}</b> ERN ምስ <b>${values[1]}</b> ዝያዳ ትቕበሉ`;
+                const values = [...english.get(el).matchAll(/<b>(.*?)<\/b>/g)].map(match => match[1].trim());
+                el.innerHTML = `ጥበባዊ ምርጫ፦ ብ <b>${values[0] || ''}</b> ምስ <b>${values[1] || ''}</b> ካብ <b>${values[2] || ''}</b> ዝያዳ ትረኽብ`;
             } else if (key.endsWith('-sending')) {
                 el.textContent = `ዝለኣኽ ገንዘብ፦ ${english.get(el).split(':').slice(1).join(':').trim()}`;
             } else if (key === 'fee') {
@@ -1277,7 +1362,11 @@ tr:hover {
 </script>
 
 <div class="footer">
-    <p>
+    <div class="language-tabs footer-language-tabs" aria-label="Language selection">
+        <button type="button" data-language="en" aria-pressed="true">English</button>
+        <button type="button" data-language="ti" aria-pressed="false">ትግርኛ</button>
+    </div>
+    <p style="margin-top: 0.75rem;">
         Question or feedback? Contact us: 
         <a href="mailto:nakfarate@protonmail.com">nakfarate@protonmail.com</a>
     </p>
