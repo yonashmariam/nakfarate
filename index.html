@@ -229,25 +229,35 @@ body {
     display: block;
 }
 
+.corridor-heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin: 0;
+    color: inherit;
+    line-height: inherit;
+}
+
+.corridor-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
 /* Dedicated currency pages use a compact desktop dashboard while preserving
    a single-column reading order on phones. */
 @media (min-width: 900px) {
     .corridor-page .container { max-width: 1180px; }
-    .corridor-page .dashboard-top {
-        display: grid;
-        grid-template-columns: minmax(390px, 0.9fr) minmax(420px, 1.1fr);
-        gap: 1.25rem;
-        align-items: start;
-    }
     .corridor-page .dashboard-content {
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(410px, 1.1fr);
+        grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
         gap: 1.25rem;
         align-items: start;
     }
-    .corridor-page .header-banner,
-    .corridor-page .mid-market-card { margin-bottom: 1.25rem; }
-    .corridor-page .dashboard-content > .mid-market-card { margin-top: 0 !important; }
+    .corridor-page .dashboard-content > .glass-card { margin-bottom: 0; }
+    .corridor-page .corridor-sidebar .mid-market-card {
+        margin-top: 0 !important;
+        margin-bottom: 0;
+    }
     .corridor-page .card-body { padding: 1rem; }
     .corridor-page .dashboard-content table { min-width: 610px; }
     .corridor-page .dashboard-content th,
@@ -764,7 +774,7 @@ tr:hover {
         <div class="mid-market-card">
             <h3 data-i18n="mid-market">🌍 Mid-Market Exchange Rates</h3>
             <div class="summary-grid">
-                
+
             <div class="summary-item">
                 <div class="summary-label">SEK</div>
                 <div class="summary-value">1.5028</div>
@@ -789,7 +799,7 @@ tr:hover {
     </div>
 
     <div class="dashboard-content">
-        
+
     <div class="glass-card mb-2" id="sek-corridor">
         <div class="card-header country-title">
             <div style="display: flex; align-items: center; gap: 10px;">
@@ -1097,7 +1107,7 @@ tr:hover {
         <div class="mid-market-card" style="margin-top: 3rem;">
             <h3 data-i18n="trend-history">📈 30-Day Trend History</h3>
             <div class="chart-grid">
-                
+
             <div class="chart-card">
                 <div class="chart-header">
                     <img src="https://flagcdn.com/w40/se.png" class="flag-sm" alt="Sweden"> <span>SEK / ERN</span>
@@ -1254,11 +1264,11 @@ tr:hover {
             if (language === 'en') {
                 el.innerHTML = english.get(el);
             } else if (key === 'top-pick') {
-                const values = [...english.get(el).matchAll(/<b>(.*?)<\/b>/g)].map(match => match[1]);
-                el.innerHTML = `ዝበለጸ ምርጫ፦ <b>${values[0]}</b> <b>${values[1]}</b> ERN የብጽሕ`;
+                const values = [...english.get(el).matchAll(/<b>(.*?)<\/b>/g)].map(match => match[1].trim());
+                el.innerHTML = `ዝበለጸ ምርጫ፦ <b>${values[0] || ''}</b> የብጽሕ <b>${values[1] || ''}</b>`;
             } else if (key === 'smart-move') {
-                const values = [...english.get(el).matchAll(/<b>(.*?)<\/b>/g)].map(match => match[1]);
-                el.innerHTML = `ዝበለጸ ምርጫ፦ ብ <b>${values[0]}</b> ERN ምስ <b>${values[1]}</b> ዝያዳ ትቕበሉ`;
+                const values = [...english.get(el).matchAll(/<b>(.*?)<\/b>/g)].map(match => match[1].trim());
+                el.innerHTML = `ጥበባዊ ምርጫ፦ ብ <b>${values[0] || ''}</b> ምስ <b>${values[1] || ''}</b> ካብ <b>${values[2] || ''}</b> ዝያዳ ትረኽብ`;
             } else if (key.endsWith('-sending')) {
                 el.textContent = `ዝለኣኽ ገንዘብ፦ ${english.get(el).split(':').slice(1).join(':').trim()}`;
             } else if (key === 'fee') {
