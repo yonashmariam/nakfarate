@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18086167043"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18086167043');
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NakfaRate | Daily ERN Exchange Rates (SEK, NOK, DKK to Eritrean Nakfa)</title>
+<meta name="description" content="Compare live Eritrean Nakfa (ERN) exchange rates from Sweden (SEK), Norway (NOK), and Denmark (DKK). Find the best rates and lowest transfer fees from Transfer Galaxy, Dahabshiil, Remitly, Western Union, and Ria.">
+<meta name="keywords" content="nakfa rate, sek to ern, nok to ern, dkk to ern, växelkurs nakfa, skicka pengar till eritrea, sende penger til eritrea, sende penge til eritrea, transfer galaxy nakfa, dahabshiil nakfa, eritrean nakfa exchange rate">
+<link rel="canonical" href="https://nakfarate.com/">
+
+<!-- Open Graph / Social Sharing -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="NakfaRate | Live ERN Exchange Rates (SEK, NOK, DKK)">
+<meta property="og:description" content="Compare live Eritrean Nakfa (ERN) money transfer rates from Sweden, Norway, and Denmark. Find the highest payout and lowest fees.">
+<meta property="og:url" content="https://nakfarate.com/">
+<meta property="og:site_name" content="NakfaRate">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="NakfaRate | Live ERN Exchange Rates (SEK, NOK, DKK)">
+<meta name="twitter:description" content="Compare live Eritrean Nakfa (ERN) exchange rates from Sweden, Norway, and Denmark. Updated daily.">
+
+<!-- Structured Data (JSON-LD) for Google Rich Snippets -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://nakfarate.com/#website",
+      "url": "https://nakfarate.com/",
+      "name": "NakfaRate",
+      "description": "Live Eritrean Nakfa (ERN) money transfer comparison for Nordic currencies (SEK, NOK, DKK)."
+    },
+    {
+      "@type": "FinancialService",
+      "@id": "https://nakfarate.com/#service",
+      "name": "NakfaRate Exchange Rate Comparison",
+      "url": "https://nakfarate.com/",
+      "currenciesAccepted": ["SEK", "NOK", "DKK", "ERN"],
+      "description": "Comparison of exchange rates and transfer fees to Eritrea from Sweden, Norway, and Denmark."
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://nakfarate.com/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which provider gives the best exchange rate for SEK to ERN?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Transfer companies like Transfer Galaxy, Dahabshiil, Ria, Remitly, and Western Union regularly update their rates. NakfaRate compares all providers daily so you can see who delivers the highest ERN payout."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How are money transfer rates to Eritrea calculated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The total ERN received is calculated based on the provider exchange rate minus all transfer and agent fees for sending 10,000 local currency (SEK, NOK, or DKK)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often is NakfaRate updated?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Rates are collected and updated daily directly from licensed money transfer operators."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+
+<!-- Cloudflare Web Analytics -->
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js'
+data-cf-beacon='{&quot;token&quot;: &quot;5d26a70ee4f049feb02ddaeca63d390e&quot;}'></script>
+<!-- End Cloudflare Web Analytics -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --bg-primary: #f0f4f8; 
+    --text-main: #2b2b2b;
+    --text-muted: #5e6c84;
+    --brand-blue: #0A146E; 
+    --brand-blue-hover: #132298;
+    --accent-blue: #2344B6; 
+    --success: #17894a;
+    --success-light: #e3fcec;
+    --success-border: #abf1c6;
+    --danger: #d92d20;
+    --danger-light: #fee4e2;
+    --info-light: #eef2fb;
+    --info-border: #b1c5f6;
+    --border-color: #dcdfe5;
+    --card-bg: #ffffff;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    color: var(--text-main);
+    background-color: var(--bg-primary);
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+.top-bar {
+    background-color: #ffffff;
+    padding: 0.75rem 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.top-bar-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.logo-block {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    flex-shrink: 0;
+}
+
+.logo-block img {
+    height: 44px;
+    width: auto;
+    display: block;
+}
+
+.top-bar-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.4rem;
+}
+
+.corridor-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-top: 0;
+}
+
+.corridor-nav a {
+    color: var(--brand-blue);
+    background: #eef2fb;
+    border: 1px solid #c7d2fe;
+    border-radius: 999px;
+    padding: 0.35rem 0.8rem;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.corridor-nav a:hover, .corridor-nav a:focus-visible {
+    background: var(--brand-blue);
+    color: #ffffff;
+}
+
+.language-tabs {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-top: 0;
+}
+
+.language-tabs button {
+    border: 1px solid #c7d2fe;
+    border-radius: 999px;
+    background: #ffffff;
+    color: var(--brand-blue);
+    cursor: pointer;
+    font: inherit;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.28rem 0.7rem;
+}
+
+.language-tabs button[aria-pressed="true"] {
+    background: var(--brand-blue);
+    color: #ffffff;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.dashboard-top, .dashboard-content {
+    display: block;
+}
+
+.header-banner {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-top: 5px solid var(--brand-blue);
+    text-align: center;
+}
+
+.header-banner h1 {
+    font-size: 2rem;
+    color: var(--text-main);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.header-banner p {
+    color: var(--text-muted);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+}
+
+.banner {
+    display: inline-block;
+    background: #0ea5e9;
+    color: white;
+    padding: 0.5rem 1.2rem;
+    font-weight: 600;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    box-shadow: 0 2px 4px rgba(14, 165, 233, 0.3);
+}
+
+.mid-market-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 2rem;
+}
+
+.mid-market-card h3 {
+    color: var(--text-main);
+    font-weight: 700;
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.summary-item {
+    background: #f8fafc;
+    padding: 1rem 0.5rem;
+    border-radius: 6px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.summary-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.summary-value {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--accent-blue);
+}
+
+.mid-market-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.mb-2 { margin-bottom: 2rem; }
+
+.glass-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.card-header {
+    background: var(--brand-blue);
+    color: white;
+    padding: 1rem 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.sending-badge {
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.3rem 0.75rem;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+}
+
+.card-body {
+    padding: 1.5rem;
+}
+
+.insight-boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.bestbox, .gainbox {
+    padding: 1rem;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.bestbox {
+    background: var(--success-light);
+    color: #065f46;
+    border: 1px solid var(--success-border);
+}
+
+.gainbox {
+    background: var(--info-light);
+    color: var(--brand-blue);
+    border: 1px solid var(--info-border);
+}
+
+.calculator-card {
+    margin-top: 1.25rem;
+    padding: 1.25rem;
+    border: 1px solid var(--info-border);
+    border-radius: 8px;
+    background: var(--info-light);
+    text-align: left;
+}
+
+.calculator-header h2 {
+    color: var(--brand-blue);
+    font-size: 1.15rem;
+    margin-bottom: 0.25rem;
+}
+
+.calculator-header p {
+    color: var(--text-muted);
+    font-size: 0.86rem;
+    margin-bottom: 1rem;
+}
+
+.calculator-form label {
+    display: block;
+    color: var(--text-main);
+    font-size: 0.82rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+}
+
+.calculator-input-row {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.calculator-input-row input,
+.calculator-input-row select {
+    min-height: 44px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: white;
+    color: var(--text-main);
+    font: inherit;
+    font-size: 1rem;
+    padding: 0.65rem 0.75rem;
+}
+
+.calculator-input-row input {
+    min-width: 0;
+    flex: 1;
+}
+
+.calculator-input-row select {
+    width: 92px;
+    font-weight: 700;
+}
+
+.calculator-error {
+    min-height: 1.25rem;
+    color: var(--danger);
+    font-size: 0.78rem;
+    margin-top: 0.35rem;
+}
+
+.calculator-result {
+    margin-top: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--info-border);
+}
+
+.calculator-result-label {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+}
+
+.calculator-ern {
+    color: var(--success);
+    font-size: 1.8rem;
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0.2rem 0 0.25rem;
+}
+
+.calculator-provider {
+    color: var(--brand-blue);
+    font-weight: 700;
+    font-size: 0.92rem;
+}
+
+.calculator-rate,
+.calculator-fee {
+    color: var(--text-muted);
+    font-size: 0.78rem;
+    margin-top: 0.15rem;
+}
+
+.calculator-note {
+    color: var(--text-muted);
+    font-size: 0.72rem;
+    line-height: 1.45;
+    margin-top: 0.7rem;
+}
+
+.table-container {
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    text-align: left;
+    min-width: 800px;
+}
+
+th {
+    background: #f8fafc;
+    color: var(--text-muted);
+    font-weight: 600;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 1rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+    vertical-align: middle;
+}
+
+tr:last-child td { border-bottom: none; }
+
+tr:hover {
+    background-color: #f1f5f9;
+}
+
+.best-row {
+    background: #f0fdf4;
+}
+
+.right { text-align: right; }
+.left { text-align: left; }
+
+.font-numeric {
+    font-family: 'Inter', monospace;
+    font-variant-numeric: tabular-nums;
+}
+
+.nowrap { white-space: nowrap; }
+
+.company-name {
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.badge {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-left: 0.5rem;
+}
+
+.best-badge {
+    background: var(--success);
+    color: white;
+}
+
+.rank-badge {
+    background: #e2e8f0;
+    color: var(--text-muted);
+}
+
+.highlight-ern {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--success);
+}
+
+.loss-text {
+    color: var(--danger);
+    font-weight: 600;
+}
+
+.markup-cell {
+    color: var(--text-muted);
+}
+.markup-good {
+    color: var(--success);
+    font-weight: 600;
+}
+
+.flag-icon {
+    width: 28px;
+    height: 19px;
+    object-fit: cover;
+    vertical-align: middle;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+}
+
+.footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding: 2rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    background: white;
+    border-top: 1px solid var(--border-color);
+}
+
+@media (max-width: 768px) {
+    .top-bar-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .top-bar-right {
+        align-items: center;
+    }
+    .header-banner h1 { font-size: 1.4rem; }
+    th, td { padding: 0.75rem 0.5rem; }
+    .hide-mobile { display: none; }
+    .card-body { padding: 1rem; }
+    .card-header { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+    .mid-market-meta { flex-direction: column; gap: 0.5rem; align-items: flex-start; }
+    .logo-block img { height: 38px; }
+}
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+    <div class="top-bar-container">
+        <!-- Logo on Left -->
+        <a class="logo-block" href="/" aria-label="NakfaRate home">
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAA..." alt="NakfaRate" onerror="this.style.display='none'">
+        </a>
+
+        <!-- Navigation & Language Controls on Right -->
+        <div class="top-bar-right">
+            <nav class="corridor-nav" aria-label="Exchange corridors">
+                <a href="/sek-to-ern/">SEK to ERN</a>
+                <a href="/nok-to-ern/">NOK to ERN</a>
+                <a href="/dkk-to-ern/">DKK to ERN</a>
+            </nav>
+            <div class="language-tabs" aria-label="Language selection">
+                <button type="button" data-language="en" aria-pressed="true">English</button>
+                <button type="button" data-language="ti" aria-pressed="false">ትግርኛ</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="dashboard-top">
+        <div class="header-banner">
+            <h1 data-i18n="hero-title">Compare Nordic Money Transfer Rates to Eritrea</h1>
+            <p data-i18n="hero-subtitle">Real-time exchange rates & fees for sending money from Sweden (SEK), Norway (NOK), and Denmark (DKK) to Eritrea (ERN).</p>
+            <div class="banner" data-i18n="benchmark">Calculation Benchmark: 10 000 local currency (SEK / NOK / DKK)</div>
+
+            <div class="calculator-card" aria-labelledby="calculator-title">
+                <div class="calculator-header">
+                    <div>
+                        <h2 id="calculator-title" data-i18n="calculator-title">💱 How much will they receive?</h2>
+                        <p data-i18n="calculator-subtitle">Calculate the actual ERN payout using today's best available money transfer rate.</p>
+                    </div>
+                </div>
+
+                <div class="calculator-form">
+                    <label for="calculator-amount" data-i18n="calculator-amount-label">I want to send</label>
+                    <div class="calculator-input-row">
+                        <input id="calculator-amount" type="number" min="1" step="1" value="10000" inputmode="decimal" aria-describedby="calculator-error">
+                        <select id="calculator-currency" aria-label="Sending currency">
+                            <option value="SEK">SEK</option>
+                            <option value="NOK">NOK</option>
+                            <option value="DKK">DKK</option>
+                        </select>
+                    </div>
+                    <div id="calculator-error" class="calculator-error" role="alert" aria-live="polite"></div>
+                </div>
+
+                <div class="calculator-result" aria-live="polite">
+                    <div class="calculator-result-label" data-i18n="calculator-recipient-label">Recipient receives</div>
+                    <div id="calculator-ern" class="calculator-ern">— ERN</div>
+                    <div id="calculator-provider" class="calculator-provider">—</div>
+                    <div id="calculator-rate" class="calculator-rate">Rate: —</div>
+                    <div id="calculator-fee" class="calculator-fee">Fee: —</div>
+                    <div class="calculator-note" data-i18n="calculator-note">Best payout is recalculated for the amount you enter using the same rate and fee calculation as the comparison table.</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="mid-market-card">
+            <h3 data-i18n="mid-market">🌍 Mid-Market Exchange Rates</h3>
+            <div class="summary-grid">
+                <div class="summary-item">
+                    <div class="summary-label">SEK</div>
+                    <div class="summary-value">1.4957</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">NOK</div>
+                    <div class="summary-value">1.5594</div>
+                </div>
+                <div class="summary-item">
+                    <div class="summary-label">DKK</div>
+                    <div class="summary-value">2.2579</div>
+                </div>
+            </div>
+            <div class="mid-market-meta">
+                <div><span style="font-weight:600" data-i18n="last-updated">Last Updated:</span> 2026-10-02 07:01</div>
+                <div style="font-size:0.8rem" data-i18n="mid-market-note">Official mid-market rates collected daily. Actual transfer payout rates shown below.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dashboard-content">
+        
+    <div class="glass-card mb-2" id="sek-corridor">
+        <div class="card-header country-title">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="https://flagcdn.com/w40/se.png" class="flag-icon" alt="Sweden (SEK to ERN)"> 
+                <span data-i18n="sek-corridor">Sweden (SEK to ERN)</span>
+            </div>
+            <div class="sending-badge" data-i18n="sek-sending">Sending: 10 000,00 SEK</div>
+        </div>
+        <div class="card-body">
+            <div class="insight-boxes">
+                <div class="bestbox">
+                    <span class="icon">🏆</span> 
+                    <span data-i18n="top-pick">Top Pick: <b>Transfer Galaxy</b> delivers <b>14 959 ERN</b></span>
+                </div>
+                <div class="gainbox">
+                    <span class="icon">💡</span> 
+                    <span data-i18n="smart-move">Smart Move: You get <b>+444 ERN</b> more with <b>Transfer Galaxy</b> vs <b>Remitly</b></span>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="left" data-i18n="provider">Provider</th>
+                            <th class="right" data-i18n="exchange-rate">Exchange Rate</th>
+                            <th class="right" data-i18n="fee">Fee (SEK)</th>
+                            <th class="right" data-i18n="you-receive">You Receive (ERN)</th>
+                            <th class="right" data-i18n="difference">Diff vs Best</th>
+                            <th class="right" data-i18n="hidden-fee">Hidden Fee (vs Mid)</th>
+                            <th class="right hide-mobile" data-i18n="rank">Rank</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+<tr class="best-row">
+<td class="left">
+    <div class="company-name">Transfer Galaxy</div>
+</td>
+<td class="right font-numeric">1.4959</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">14 959</td>
+<td class="right nowrap font-numeric">-</td>
+<td class="right font-numeric markup-good">-0.01%</td>
+<td class="right font-numeric hide-mobile"><span class="badge best-badge">Best</span></td>
+</tr>
+
+<tr class="">
+<td class="left">
+    <div class="company-name">Ria</div>
+</td>
+<td class="right font-numeric">1.4630</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">14 630</td>
+<td class="right nowrap font-numeric"><span class="loss-text">-329 ERN</span></td>
+<td class="right font-numeric markup-cell">2.19%</td>
+<td class="right font-numeric hide-mobile"><span class="badge rank-badge">#2</span></td>
+</tr>
+
+<tr class="">
+<td class="left">
+    <div class="company-name">Dahabshiil</div>
+</td>
+<td class="right font-numeric">1.4585</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">14 584</td>
+<td class="right nowrap font-numeric"><span class="loss-text">-374 ERN</span></td>
+<td class="right font-numeric markup-cell">2.49%</td>
+<td class="right font-numeric hide-mobile"><span class="badge rank-badge">#3</span></td>
+</tr>
+
+<tr class="">
+<td class="left">
+    <div class="company-name">Western Union</div>
+</td>
+<td class="right font-numeric">1.4547</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">14 547</td>
+<td class="right nowrap font-numeric"><span class="loss-text">-411 ERN</span></td>
+<td class="right font-numeric markup-cell">2.74%</td>
+<td class="right font-numeric hide-mobile"><span class="badge rank-badge">#4</span></td>
+</tr>
+
+<tr class="">
+<td class="left">
+    <div class="company-name">Remitly</div>
+</td>
+<td class="right font-numeric">1.4515</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">14 515</td>
+<td class="right nowrap font-numeric"><span class="loss-text">-444 ERN</span></td>
+<td class="right font-numeric markup-cell">2.96%</td>
+<td class="right font-numeric hide-mobile"><span class="badge rank-badge">#5</span></td>
+</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+        
+    <div class="glass-card mb-2" id="nok-corridor">
+        <div class="card-header country-title">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="https://flagcdn.com/w40/no.png" class="flag-icon" alt="Norway (NOK to ERN)"> 
+                <span data-i18n="nok-corridor">Norway (NOK to ERN)</span>
+            </div>
+            <div class="sending-badge" data-i18n="nok-sending">Sending: 10 000,00 NOK</div>
+        </div>
+        <div class="card-body">
+            <div class="insight-boxes">
+                <div class="bestbox">
+                    <span class="icon">🏆</span> 
+                    <span data-i18n="top-pick">Top Pick: <b>Transfer Galaxy</b> delivers <b>15 604 ERN</b></span>
+                </div>
+                <div class="gainbox">
+                    <span class="icon">💡</span> 
+                    <span data-i18n="smart-move">Smart Move: You get <b>+868 ERN</b> more with <b>Transfer Galaxy</b> vs <b>Dahabshiil</b></span>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="left" data-i18n="provider">Provider</th>
+                            <th class="right" data-i18n="exchange-rate">Exchange Rate</th>
+                            <th class="right" data-i18n="fee">Fee (NOK)</th>
+                            <th class="right" data-i18n="you-receive">You Receive (ERN)</th>
+                            <th class="right" data-i18n="difference">Diff vs Best</th>
+                            <th class="right" data-i18n="hidden-fee">Hidden Fee (vs Mid)</th>
+                            <th class="right hide-mobile" data-i18n="rank">Rank</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+<tr class="best-row">
+<td class="left">
+    <div class="company-name">Transfer Galaxy</div>
+</td>
+<td class="right font-numeric">1.5604</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">15 604</td>
+<td class="right nowrap font-numeric">-</td>
+<td class="right font-numeric markup-good">-0.06%</td>
+<td class="right font-numeric hide-mobile"><span class="badge best-badge">Best</span></td>
+</tr>
+
+<tr class="">
+<td class="left">
+    <div class="company-name">Remitly</div>
+</td>
+<td class="right font-numeric">1.5116</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">15 116</td>
+<td class="right nowrap font-numeric"><span class="loss-text">-488 ERN</span></td>
+<td class="right font-numeric markup-cell">3.07%</td>
+<td class="right font-numeric hide-mobile"><span class="badge rank-badge">#2</span></td>
+</tr>
+
+<tr class="">
+<td class="left">
+    <div class="company-name">Ria Money Transfer</div>
+</td>
+<td class="right font-numeric">1.5080</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">15 080</td>
+<td class="right nowrap font-numeric"><span class="loss-text">-524 ERN</span></td>
+<td class="right font-numeric markup-cell">3.30%</td>
+<td class="right font-numeric hide-mobile"><span class="badge rank-badge">#3</span></td>
+</tr>
+
+<tr class="">
+<td class="left">
+    <div class="company-name">Hidmona Money Transfer</div>
+</td>
+<td class="right font-numeric">1.4802</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">14 802</td>
+<td class="right nowrap font-numeric"><span class="loss-text">-802 ERN</span></td>
+<td class="right font-numeric markup-cell">5.08%</td>
+<td class="right font-numeric hide-mobile"><span class="badge rank-badge">#4</span></td>
+</tr>
+
+<tr class="">
+<td class="left">
+    <div class="company-name">Dahabshiil</div>
+</td>
+<td class="right font-numeric">1.4736</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">14 736</td>
+<td class="right nowrap font-numeric"><span class="loss-text">-868 ERN</span></td>
+<td class="right font-numeric markup-cell">5.50%</td>
+<td class="right font-numeric hide-mobile"><span class="badge rank-badge">#5</span></td>
+</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+        
+    <div class="glass-card mb-2" id="dkk-corridor">
+        <div class="card-header country-title">
+            <div style="display: flex; align-items: center; gap: 10px;">
+                <img src="https://flagcdn.com/w40/dk.png" class="flag-icon" alt="Denmark (DKK to ERN)"> 
+                <span data-i18n="dkk-corridor">Denmark (DKK to ERN)</span>
+            </div>
+            <div class="sending-badge" data-i18n="dkk-sending">Sending: 10 000,00 DKK</div>
+        </div>
+        <div class="card-body">
+            <div class="insight-boxes">
+                <div class="bestbox">
+                    <span class="icon">🏆</span> 
+                    <span data-i18n="top-pick">Top Pick: <b>Ria Money Transfer</b> delivers <b>22 300 ERN</b></span>
+                </div>
+                <div class="gainbox">
+                    <span class="icon">💡</span> 
+                    <span data-i18n="smart-move">Smart Move: You get <b>+844 ERN</b> more with <b>Ria Money Transfer</b> vs <b>Western Union</b></span>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th class="left" data-i18n="provider">Provider</th>
+                            <th class="right" data-i18n="exchange-rate">Exchange Rate</th>
+                            <th class="right" data-i18n="fee">Fee (DKK)</th>
+                            <th class="right" data-i18n="you-receive">You Receive (ERN)</th>
+                            <th class="right" data-i18n="difference">Diff vs Best</th>
+                            <th class="right" data-i18n="hidden-fee">Hidden Fee (vs Mid)</th>
+                            <th class="right hide-mobile" data-i18n="rank">Rank</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+<tr class="best-row">
+<td class="left">
+    <div class="company-name">Ria Money Transfer</div>
+</td>
+<td class="right font-numeric">2.2300</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">22 300</td>
+<td class="right nowrap font-numeric">-</td>
+<td class="right font-numeric markup-good">1.24%</td>
+<td class="right font-numeric hide-mobile"><span class="badge best-badge">Best</span></td>
+</tr>
+
+<tr class="">
+<td class="left">
+    <div class="company-name">Hidmona Money Transfer</div>
+</td>
+<td class="right font-numeric">2.2122</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">22 122</td>
+<td class="right nowrap font-numeric"><span class="loss-text">-178 ERN</span></td>
+<td class="right font-numeric markup-cell">2.02%</td>
+<td class="right font-numeric hide-mobile"><span class="badge rank-badge">#2</span></td>
+</tr>
+
+<tr class="">
+<td class="left">
+    <div class="company-name">Transfer Galaxy</div>
+</td>
+<td class="right font-numeric">2.2043</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">22 043</td>
+<td class="right nowrap font-numeric"><span class="loss-text">-257 ERN</span></td>
+<td class="right font-numeric markup-cell">2.37%</td>
+<td class="right font-numeric hide-mobile"><span class="badge rank-badge">#3</span></td>
+</tr>
+
+<tr class="">
+<td class="left">
+    <div class="company-name">Remitly</div>
+</td>
+<td class="right font-numeric">2.1986</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">21 986</td>
+<td class="right nowrap font-numeric"><span class="loss-text">-314 ERN</span></td>
+<td class="right font-numeric markup-cell">2.63%</td>
+<td class="right font-numeric hide-mobile"><span class="badge rank-badge">#4</span></td>
+</tr>
+
+<tr class="">
+<td class="left">
+    <div class="company-name">Western Union</div>
+</td>
+<td class="right font-numeric">2.1456</td>
+<td class="right font-numeric">0,00</td>
+<td class="right nowrap font-numeric highlight-ern">21 456</td>
+<td class="right nowrap font-numeric"><span class="loss-text">-844 ERN</span></td>
+<td class="right font-numeric markup-cell">4.97%</td>
+<td class="right font-numeric hide-mobile"><span class="badge rank-badge">#5</span></td>
+</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>&copy; 2026 NakfaRate. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
