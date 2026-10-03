@@ -253,6 +253,48 @@ body {
     line-height: inherit;
 }
 
+/* Corridor page flow:
+   comparison + mid-market stay together on top;
+   30-day trend runs full-width underneath to avoid the large blank area. */
+.corridor-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.corridor-main-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
+    gap: 1.25rem;
+    align-items: start;
+}
+
+.corridor-comparison {
+    min-width: 0;
+}
+
+.corridor-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    min-width: 0;
+}
+
+.corridor-trend-card {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.corridor-trend-card .chart-grid {
+    grid-template-columns: minmax(0, 1fr);
+}
+
+@media (max-width: 899px) {
+    .corridor-main-row {
+        grid-template-columns: 1fr;
+    }
+}
+
 .corridor-sidebar {
     display: flex;
     flex-direction: column;
@@ -263,22 +305,24 @@ body {
    a single-column reading order on phones. */
 @media (min-width: 900px) {
     .corridor-page .container { max-width: 1180px; }
-    .corridor-page .dashboard-content {
-        display: grid;
+    .corridor-page .corridor-main-row {
         grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
-        gap: 1.25rem;
-        align-items: start;
     }
-    .corridor-page .dashboard-content > .glass-card { margin-bottom: 0; }
+    .corridor-page .corridor-comparison .glass-card {
+        margin-bottom: 0;
+    }
     .corridor-page .corridor-sidebar .mid-market-card {
         margin-top: 0 !important;
         margin-bottom: 0;
     }
-    .corridor-page .card-body { padding: 1rem; }
-    .corridor-page .dashboard-content table { min-width: 610px; }
-    .corridor-page .dashboard-content th,
-    .corridor-page .dashboard-content td { padding: 0.65rem 0.45rem; font-size: 0.74rem; }
-    .corridor-page .dashboard-content .highlight-ern { font-size: 0.9rem; }
+    .corridor-page .corridor-comparison .card-body { padding: 1rem; }
+    .corridor-page .corridor-comparison table { min-width: 610px; }
+    .corridor-page .corridor-comparison th,
+    .corridor-page .corridor-comparison td {
+        padding: 0.65rem 0.45rem;
+        font-size: 0.74rem;
+    }
+    .corridor-page .corridor-comparison .highlight-ern { font-size: 0.9rem; }
     .corridor-page .guide-card { width: 78%; margin-left: auto; margin-right: auto; }
 }
 
