@@ -31,57 +31,28 @@
 <meta name="twitter:title" content="NakfaRate | Live ERN Exchange Rates (SEK, NOK, DKK)">
 <meta name="twitter:description" content="Compare live Eritrean Nakfa (ERN) exchange rates from Sweden, Norway, and Denmark. Updated daily.">
 
-<!-- Structured Data (JSON-LD) for Google Rich Snippets -->
+<!-- Schema.org JSON-LD -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebSite",
-      "@id": "https://nakfarate.com/#website",
-      "url": "https://nakfarate.com/",
-      "name": "NakfaRate",
-      "description": "Live Eritrean Nakfa (ERN) money transfer comparison for Nordic currencies (SEK, NOK, DKK)."
-    },
-    {
-      "@type": "FinancialService",
-      "@id": "https://nakfarate.com/#service",
-      "name": "NakfaRate Exchange Rate Comparison",
-      "url": "https://nakfarate.com/",
-      "currenciesAccepted": ["SEK", "NOK", "DKK", "ERN"],
-      "description": "Comparison of exchange rates and transfer fees to Eritrea from Sweden, Norway, and Denmark."
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://nakfarate.com/#faq",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "Which provider gives the best exchange rate for SEK to ERN?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Transfer companies like Transfer Galaxy, Dahabshiil, Ria, Remitly, and Western Union regularly update their rates. NakfaRate compares all providers daily so you can see who delivers the highest ERN payout."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How are money transfer rates to Eritrea calculated?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "The total ERN received is calculated based on the provider exchange rate minus all transfer and agent fees for sending 10,000 local currency (SEK, NOK, or DKK)."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "How often is NakfaRate updated?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Rates are collected and updated daily directly from licensed money transfer operators."
-          }
-        }
-      ]
-    }
-  ]
+  "@type": "FinancialService",
+  "@id": "https://nakfarate.com/#service",
+  "name": "NakfaRate Exchange Rate Comparison",
+  "url": "https://nakfarate.com/",
+  "description": "Comparison of exchange rates and transfer fees to Eritrea from Sweden, Norway, and Denmark.",
+  "currenciesAccepted": [
+    "SEK",
+    "NOK",
+    "DKK",
+    "ERN"
+  ],
+  "image": "https://nakfarate.com/assets/logo.png",
+  "priceRange": "Free",
+  "telephone": "+46000000000",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "SE"
+  }
 }
 </script>
 
