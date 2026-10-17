@@ -222,15 +222,10 @@ body {
     line-height: inherit;
 }
 
-/* Corridor page flow:
-   comparison + mid-market stay together on top;
-   30-day trend runs full-width underneath to avoid the large blank area. */
-.corridor-flow {
-    display: flex;
-    flex-direction: column;
-    gap: 1.25rem;
-}
-
+/* Corridor page layout: comparison table on the left, mid-market rate and
+   30-day trend stacked in the sidebar on the right, so both columns end
+   at roughly the same height instead of leaving blank space under a
+   short sidebar. */
 .corridor-main-row {
     display: grid;
     grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
@@ -286,6 +281,9 @@ body {
         font-size: 0.74rem;
     }
     .corridor-page .corridor-comparison .highlight-ern { font-size: 0.9rem; }
+    .corridor-page .corridor-sidebar .mid-market-card { padding: 1.1rem; }
+    .corridor-page .corridor-sidebar .mid-market-card h3 { font-size: 1.05rem; margin-bottom: 1rem; }
+    .corridor-page .corridor-sidebar .chart-card { padding: 0.9rem; }
     .corridor-page .guide-card { width: 78%; margin-left: auto; margin-right: auto; }
 }
 
@@ -831,9 +829,8 @@ tr:hover {
 </div>
 
 <div class="container">
-    <div class="corridor-flow">
-        <div class="corridor-main-row">
-            <div class="corridor-comparison">
+    <div class="corridor-main-row">
+        <div class="corridor-comparison">
 
     <div class="glass-card mb-2" id="sek-corridor">
         <div class="card-header country-title">
@@ -948,36 +945,35 @@ tr:hover {
         </div>
     </div>
 
-            </div>
-
-            <div class="corridor-sidebar">
-                <div class="mid-market-card">
-                    <h3 data-i18n="mid-market">🌍 Mid-Market Exchange Rates</h3>
-                    <div class="summary-grid">
-                        <div class="summary-item">
-                            <div class="summary-label">SEK</div>
-                            <div class="summary-value">1.5097</div>
-                        </div>
-                    </div>
-                    <div class="mid-market-meta">
-                        <div><span style="font-weight:600" data-i18n="last-updated">Last Updated:</span> 2026-10-16 07:07</div>
-                        <div style="font-size:0.8rem" data-i18n="mid-market-note">Official mid-market rates collected daily. Actual transfer payout rates shown below.</div>
-                    </div>
-                </div>
-            </div>
         </div>
 
-        <div class="corridor-trend-card mid-market-card">
-            <h3 data-i18n="trend-history">📈 30-Day Trend History</h3>
-            <div class="chart-grid">
+        <div class="corridor-sidebar">
+            <div class="mid-market-card">
+                <h3 data-i18n="mid-market">🌍 Mid-Market Exchange Rates</h3>
+                <div class="summary-grid">
+                    <div class="summary-item">
+                        <div class="summary-label">SEK</div>
+                        <div class="summary-value">1.5097</div>
+                    </div>
+                </div>
+                <div class="mid-market-meta">
+                    <div><span style="font-weight:600" data-i18n="last-updated">Last Updated:</span> 2026-10-16 07:07</div>
+                    <div style="font-size:0.8rem" data-i18n="mid-market-note">Official mid-market rates collected daily. Actual transfer payout rates shown below.</div>
+                </div>
+            </div>
+
+            <div class="mid-market-card corridor-trend-card">
+                <h3 data-i18n="trend-history">📈 30-Day Trend History</h3>
+                <div class="chart-grid">
 
             <div class="chart-card">
                 <div class="chart-header">
                     <img src="https://flagcdn.com/w40/se.png" class="flag-sm" alt="Sweden" width="24" height="16" loading="lazy" decoding="async"> <span>SEK / ERN</span>
                 </div>
-                <img src="../sek_chart.png" class="chart-img" alt="SEK to ERN exchange-rate trend over the last 30 days" loading="lazy" decoding="async" width="780" height="504">
+                <img src="../sek_chart.png" class="chart-img" alt="SEK to ERN exchange-rate trend over the last 30 days" loading="lazy" decoding="async" width="688" height="464">
             </div>
 
+                </div>
             </div>
         </div>
     </div>
