@@ -230,11 +230,26 @@ body {
     display: grid;
     grid-template-columns: minmax(0, 1.15fr) minmax(360px, 0.85fr);
     gap: 1.25rem;
-    align-items: start;
+    align-items: stretch;
 }
 
 .corridor-comparison {
     min-width: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+/* The comparison card fills the row's full height (matching the sidebar's
+   combined mid-market + trend height) instead of leaving bare background
+   below a shorter table when provider counts differ. */
+.corridor-comparison .glass-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.corridor-comparison .card-body {
+    flex: 1;
 }
 
 .corridor-sidebar {
@@ -670,8 +685,30 @@ tr:hover {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
     gap: 8px;
     font-size: 1.1rem;
+}
+
+/* 30-day change badge shown next to each trend chart's title. */
+.trend-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 0.2rem 0.55rem;
+    border-radius: 999px;
+}
+
+.trend-badge.up {
+    background: var(--success-light);
+    color: var(--success);
+}
+
+.trend-badge.down {
+    background: var(--danger-light);
+    color: var(--danger);
 }
 
 .chart-card img.chart-img {
@@ -969,6 +1006,7 @@ tr:hover {
             <div class="chart-card">
                 <div class="chart-header">
                     <img src="https://flagcdn.com/w40/se.png" class="flag-sm" alt="Sweden" width="24" height="16" loading="lazy" decoding="async"> <span>SEK / ERN</span>
+                    <span class="trend-badge down">▼ 2.0%</span>
                 </div>
                 <img src="../sek_chart.png" class="chart-img" alt="SEK to ERN exchange-rate trend over the last 30 days" loading="lazy" decoding="async" width="688" height="464">
             </div>
