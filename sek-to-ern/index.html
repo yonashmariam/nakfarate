@@ -175,6 +175,31 @@ body {
     border-color: var(--brand-blue);
 }
 
+/* Monthly Analysis button: solid sky blue so it reads as a different kind of
+   link from the three currency tabs. */
+.corridor-nav a.analysis-btn {
+    background: #0ea5e9;
+    border-color: #0ea5e9;
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.corridor-nav a.analysis-btn:hover,
+.corridor-nav a.analysis-btn:focus-visible {
+    background: #0284c7;
+    border-color: #0284c7;
+}
+
+.analysis-btn .analysis-month {
+    font-size: 0.8em;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.22);
+    padding: 0.1rem 0.5rem;
+    border-radius: 999px;
+}
+
 .language-tabs {
     gap: 0.55rem;
     padding: 0.8rem;
@@ -854,7 +879,7 @@ tr:hover {
 
         <!-- Centre panel: currency corridor navigation -->
         <nav class="corridor-nav" aria-label="Exchange corridors">
-            <a class="active-corridor" href="/sek-to-ern/" aria-current="page">SEK to ERN</a><a href="/nok-to-ern/">NOK to ERN</a><a href="/dkk-to-ern/">DKK to ERN</a>
+            <a class="active-corridor" href="/sek-to-ern/" aria-current="page">SEK to ERN</a><a href="/nok-to-ern/">NOK to ERN</a><a href="/dkk-to-ern/">DKK to ERN</a><a class="analysis-btn" href="/analysis/NakfaRate_Report_Oct_2026.html" target="_blank" rel="noopener"><span data-i18n="analysis-button">📊 Monthly Analysis</span> <span class="analysis-month">Nov 2026</span></a>
         </nav>
 
         <!-- Right panel: language selector -->
@@ -1056,6 +1081,7 @@ tr:hover {
         "difference": "ምስ ዝበለጸ ሸርፊ ፍልልይ",
         "hidden-fee": "ዘግሉጽ ክፍሊት",
         "rank": "ደረጃ",
+        "analysis-button": "📊 ወርሓዊ ትንተና",
         "trend-history": "📈 ናይ 30 መዓልቲ ምንቅስቓስ",
         "sek-title": "SEK ናብ ERN ዋጋ ሸርፊ",
         "nok-title": "NOK ናብ ERN ዋጋ ሸርፊ",
