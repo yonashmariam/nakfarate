@@ -168,7 +168,8 @@ body {
     color: #ffffff;
 }
 
-.home-page .corridor-nav a:first-child,
+/* Only the corridor page you are actually on is highlighted. The homepage is
+   not a corridor, so none of the three tabs is active there. */
 .corridor-nav a.active-corridor {
     background: var(--brand-blue);
     color: #ffffff;
@@ -906,11 +907,11 @@ tr:hover {
             <div class="insight-boxes">
                 <div class="bestbox">
                     <span class="icon">🏆</span> 
-                    <span data-i18n="top-pick">Top Pick: <b>Ria</b> delivers <b>15 000 ERN</b></span>
+                    <span data-i18n="top-pick">Top Pick: <b>Ria</b> delivers <b>14 800 ERN</b></span>
                 </div>
                 <div class="gainbox">
                     <span class="icon">💡</span> 
-                    <span data-i18n="smart-move">Smart Move: You get <b>+471 ERN</b> more with <b>Ria</b> vs <b>Juba Express</b></span>
+                    <span data-i18n="smart-move">Smart Move: You get <b>+426 ERN</b> more with <b>Ria</b> vs <b>Juba Express</b></span>
                 </div>
             </div>
             
@@ -933,11 +934,11 @@ tr:hover {
 <td class="left">
     <div class="company-name">Ria</div>
 </td>
-<td class="right font-numeric">1.5000</td>
+<td class="right font-numeric">1.4800</td>
 <td class="right font-numeric">0,00</td>
-<td class="right nowrap font-numeric highlight-ern">15 000</td>
+<td class="right nowrap font-numeric highlight-ern">14 800</td>
 <td class="right nowrap font-numeric">-</td>
-<td class="right font-numeric markup-good">1.21%</td>
+<td class="right font-numeric markup-good">1.50%</td>
 <td class="right font-numeric hide-mobile"><span class="badge best-badge">Best</span></td>
 </tr>
 
@@ -945,11 +946,11 @@ tr:hover {
 <td class="left">
     <div class="company-name">Transfer Galaxy</div>
 </td>
-<td class="right font-numeric">1.4854</td>
+<td class="right font-numeric">1.4691</td>
 <td class="right font-numeric">0,00</td>
-<td class="right nowrap font-numeric highlight-ern">14 854</td>
-<td class="right nowrap font-numeric"><span class="loss-text">-146 ERN</span></td>
-<td class="right font-numeric markup-cell">2.17%</td>
+<td class="right nowrap font-numeric highlight-ern">14 691</td>
+<td class="right nowrap font-numeric"><span class="loss-text">-109 ERN</span></td>
+<td class="right font-numeric markup-cell">2.23%</td>
 <td class="right font-numeric hide-mobile"><span class="badge rank-badge">#2</span></td>
 </tr>
 
@@ -957,11 +958,11 @@ tr:hover {
 <td class="left">
     <div class="company-name">Western Union</div>
 </td>
-<td class="right font-numeric">1.4788</td>
+<td class="right font-numeric">1.4650</td>
 <td class="right font-numeric">0,00</td>
-<td class="right nowrap font-numeric highlight-ern">14 787</td>
-<td class="right nowrap font-numeric"><span class="loss-text">-212 ERN</span></td>
-<td class="right font-numeric markup-cell">2.60%</td>
+<td class="right nowrap font-numeric highlight-ern">14 650</td>
+<td class="right nowrap font-numeric"><span class="loss-text">-150 ERN</span></td>
+<td class="right font-numeric markup-cell">2.50%</td>
 <td class="right font-numeric hide-mobile"><span class="badge rank-badge">#3</span></td>
 </tr>
 
@@ -969,11 +970,11 @@ tr:hover {
 <td class="left">
     <div class="company-name">Remitly</div>
 </td>
-<td class="right font-numeric">1.4785</td>
+<td class="right font-numeric">1.4624</td>
 <td class="right font-numeric">0,00</td>
-<td class="right nowrap font-numeric highlight-ern">14 785</td>
-<td class="right nowrap font-numeric"><span class="loss-text">-215 ERN</span></td>
-<td class="right font-numeric markup-cell">2.62%</td>
+<td class="right nowrap font-numeric highlight-ern">14 624</td>
+<td class="right nowrap font-numeric"><span class="loss-text">-176 ERN</span></td>
+<td class="right font-numeric markup-cell">2.68%</td>
 <td class="right font-numeric hide-mobile"><span class="badge rank-badge">#4</span></td>
 </tr>
 
@@ -981,11 +982,11 @@ tr:hover {
 <td class="left">
     <div class="company-name">Dahabshiil</div>
 </td>
-<td class="right font-numeric">1.4623</td>
+<td class="right font-numeric">1.4475</td>
 <td class="right font-numeric">0,00</td>
-<td class="right nowrap font-numeric highlight-ern">14 623</td>
-<td class="right nowrap font-numeric"><span class="loss-text">-377 ERN</span></td>
-<td class="right font-numeric markup-cell">3.69%</td>
+<td class="right nowrap font-numeric highlight-ern">14 475</td>
+<td class="right nowrap font-numeric"><span class="loss-text">-325 ERN</span></td>
+<td class="right font-numeric markup-cell">3.67%</td>
 <td class="right font-numeric hide-mobile"><span class="badge rank-badge">#5</span></td>
 </tr>
 
@@ -993,11 +994,11 @@ tr:hover {
 <td class="left">
     <div class="company-name">Juba Express</div>
 </td>
-<td class="right font-numeric">1.4529</td>
+<td class="right font-numeric">1.4374</td>
 <td class="right font-numeric">0,00</td>
-<td class="right nowrap font-numeric highlight-ern">14 529</td>
-<td class="right nowrap font-numeric"><span class="loss-text">-471 ERN</span></td>
-<td class="right font-numeric markup-cell">4.31%</td>
+<td class="right nowrap font-numeric highlight-ern">14 374</td>
+<td class="right nowrap font-numeric"><span class="loss-text">-426 ERN</span></td>
+<td class="right font-numeric markup-cell">4.34%</td>
 <td class="right font-numeric hide-mobile"><span class="badge rank-badge">#6</span></td>
 </tr>
 
@@ -1015,11 +1016,11 @@ tr:hover {
                 <div class="summary-grid">
                     <div class="summary-item">
                         <div class="summary-label">SEK</div>
-                        <div class="summary-value">1.5183</div>
+                        <div class="summary-value">1.5026</div>
                     </div>
                 </div>
                 <div class="mid-market-meta">
-                    <div><span style="font-weight:600" data-i18n="last-updated">Last Updated:</span> 2026-11-11 07:13</div>
+                    <div><span style="font-weight:600" data-i18n="last-updated">Last Updated:</span> 2026-11-12 07:09</div>
                     <div style="font-size:0.8rem" data-i18n="mid-market-note">Official mid-market rates collected daily. Actual transfer payout rates shown below.</div>
                 </div>
             </div>
@@ -1031,7 +1032,7 @@ tr:hover {
             <div class="chart-card">
                 <div class="chart-header">
                     <img src="https://flagcdn.com/w40/se.png" class="flag-sm" alt="Sweden" width="24" height="16" loading="lazy" decoding="async"> <span>SEK / ERN</span>
-                    <span class="trend-badge up">▲ 1.5%</span>
+                    <span class="trend-badge up">▲ 0.5%</span>
                 </div>
                 <img src="../sek_chart.png" class="chart-img" alt="SEK to ERN exchange-rate trend over the last 30 days" loading="lazy" decoding="async" width="688" height="464">
             </div>
@@ -1096,7 +1097,7 @@ tr:hover {
         "calculator-note": "እቲ ዝበለጸ ክፍሊት ንዝኣተኻዮ መጠን ብተመሳሳሊ ሕሳብ ዋጋን ክፍሊትን ከም ሰንጠረዥ ይደጋገም።"
     };
 
-    const calculatorData = {"SEK": [{"provider": "Ria", "rate": 1.5, "total_fee": 0.0}, {"provider": "Transfer Galaxy", "rate": 1.4854, "total_fee": 0.0}, {"provider": "Western Union", "rate": 1.4788, "total_fee": 0.0}, {"provider": "Remitly", "rate": 1.4785, "total_fee": 0.0}, {"provider": "Dahabshiil", "rate": 1.4623, "total_fee": 0.0}, {"provider": "Juba Express", "rate": 1.4529, "total_fee": 0.0}], "NOK": [{"provider": "Transfer Galaxy", "rate": 1.5416, "total_fee": 0.0}, {"provider": "Ria Money Transfer", "rate": 1.54, "total_fee": 0.0}, {"provider": "Remitly", "rate": 1.5313, "total_fee": 0.0}, {"provider": "Juba Express", "rate": 1.5097, "total_fee": 0.0}, {"provider": "Hidmona Money Transfer", "rate": 1.4987, "total_fee": 0.0}, {"provider": "Dahabshiil", "rate": 1.4726, "total_fee": 0.0}], "DKK": [{"provider": "Western Union", "rate": 2.2404, "total_fee": 0.0}, {"provider": "Ria Money Transfer", "rate": 2.21, "total_fee": 0.0}, {"provider": "Hidmona Money Transfer", "rate": 2.1976, "total_fee": 0.0}, {"provider": "Transfer Galaxy", "rate": 2.1899, "total_fee": 0.0}, {"provider": "Remitly", "rate": 2.1888, "total_fee": 0.0}, {"provider": "Juba Express", "rate": 2.1417, "total_fee": 0.0}]};
+    const calculatorData = {"SEK": [{"provider": "Ria", "rate": 1.48, "total_fee": 0.0}, {"provider": "Transfer Galaxy", "rate": 1.4691, "total_fee": 0.0}, {"provider": "Western Union", "rate": 1.465, "total_fee": 0.0}, {"provider": "Remitly", "rate": 1.4624, "total_fee": 0.0}, {"provider": "Dahabshiil", "rate": 1.4475, "total_fee": 0.0}, {"provider": "Juba Express", "rate": 1.4374, "total_fee": 0.0}], "NOK": [{"provider": "Transfer Galaxy", "rate": 1.5321, "total_fee": 0.0}, {"provider": "Ria Money Transfer", "rate": 1.53, "total_fee": 0.0}, {"provider": "Remitly", "rate": 1.5208, "total_fee": 0.0}, {"provider": "Juba Express", "rate": 1.499, "total_fee": 0.0}, {"provider": "Hidmona Money Transfer", "rate": 1.4901, "total_fee": 0.0}, {"provider": "Dahabshiil", "rate": 1.4626, "total_fee": 0.0}], "DKK": [{"provider": "Western Union", "rate": 2.2241, "total_fee": 0.0}, {"provider": "Ria Money Transfer", "rate": 2.2, "total_fee": 0.0}, {"provider": "Hidmona Money Transfer", "rate": 2.1828, "total_fee": 0.0}, {"provider": "Transfer Galaxy", "rate": 2.173, "total_fee": 0.0}, {"provider": "Remitly", "rate": 2.1724, "total_fee": 0.0}, {"provider": "Juba Express", "rate": 2.1266, "total_fee": 0.0}]};
     const labels = [...document.querySelectorAll('[data-i18n]')];
     const english = new Map(labels.map(el => [el, el.innerHTML]));
 
